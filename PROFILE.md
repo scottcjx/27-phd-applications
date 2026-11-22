@@ -40,3 +40,6 @@ Facts from the user only. Claude does not add guesses here.
 | Letters | Mandar Chitre (agreed); Oliver Armitage (Axoft supervisor, not asked); Dusit Niyato (NTU thesis supervisor) |
 | MIT-WHOI faculty contacted | None |
 | Topics | Restored from v1 backup to the page |
+| Incoming prof search: start meaning | Any start from June 2027 (summer or Fall 2027) | 2026-11-22 |
+| Incoming prof search: regions | USA / Canada; UK / Europe | 2026-11-22 |
+| English | User is a native English speaker (check CMU definition) | 2026-11-22 |

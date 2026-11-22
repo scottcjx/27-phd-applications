@@ -1,0 +1,207 @@
+<title>PhD Deadlines Fall 2027</title>
+<meta name="claude:viewport-fit-sides" content="cover">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=IBM+Plex+Sans:wght@400;500;600&family=IBM+Plex+Mono:wght@400;500&family=Space+Grotesk:wght@500;600&display=swap">
+<style>
+/* Layout: header, then a horizontal day-scale strip (now -> Jan 2027), then a dense program table, then PI notes. Same tokens as the intake page. */
+:root {
+  --bg: #f4f6f9; --panel: #ffffff; --fg: #18202e; --muted: #5a6577; --line: #d5dbe5;
+  --accent: #2d55b8; --accent-soft: #e3eafa; --ok: #1f7a4d; --warn: #a35a00; --bad: #b3261e; --warn-soft: #fbefdc; --bad-soft: #fbe4e2;
+  --font-display: "Space Grotesk", "IBM Plex Sans", system-ui, sans-serif;
+  --font-body: "IBM Plex Sans", system-ui, -apple-system, "Segoe UI", sans-serif;
+  --font-mono: "IBM Plex Mono", ui-monospace, "SF Mono", Menlo, monospace;
+}
+@media (prefers-color-scheme: dark) {
+  :root:not([data-theme="light"]) {
+    --bg: #11151d; --panel: #181e29; --fg: #e4e9f2; --muted: #98a3b6; --line: #2c3545;
+    --accent: #7d9df0; --accent-soft: #1f2a44; --ok: #5cc28f; --warn: #e5a34a; --bad: #f08a80; --warn-soft: #33281a; --bad-soft: #3a1f1d; color-scheme: dark;
+  }
+}
+:root[data-theme="dark"] {
+  --bg: #11151d; --panel: #181e29; --fg: #e4e9f2; --muted: #98a3b6; --line: #2c3545;
+  --accent: #7d9df0; --accent-soft: #1f2a44; --ok: #5cc28f; --warn: #e5a34a; --bad: #f08a80; --warn-soft: #33281a; --bad-soft: #3a1f1d; color-scheme: dark;
+}
+* { box-sizing: border-box; }
+body {
+  background: var(--bg); color: var(--fg); font-family: var(--font-body); font-size: 14.5px; line-height: 1.5;
+  padding-left: max(16px, env(safe-area-inset-left, 0px));
+  padding-right: max(16px, env(safe-area-inset-right, 0px));
+  padding-block: 32px 80px;
+}
+.page { max-width: 1120px; margin: 0 auto; display: grid; gap: 28px; }
+.eyebrow { font-family: var(--font-mono); font-size: 12px; letter-spacing: .08em; text-transform: uppercase; color: var(--muted); }
+h1 { font-family: var(--font-display); font-weight: 600; font-size: 30px; line-height: 1.15; margin: 4px 0 6px; text-wrap: balance; }
+h2 { font-family: var(--font-display); font-weight: 600; font-size: 19px; margin: 0 0 10px; }
+.lede { color: var(--muted); max-width: 70ch; margin: 0; }
+.summary { display: flex; flex-wrap: wrap; gap: 10px; }
+.pill { display: inline-flex; gap: 8px; align-items: baseline; padding: 8px 12px; border-radius: 8px; border: 1px solid var(--line); background: var(--panel); }
+.pill b { font-family: var(--font-mono); font-weight: 500; font-variant-numeric: tabular-nums; }
+.pill.urgent { border-color: var(--bad); background: var(--bad-soft); }
+.pill.urgent b { color: var(--bad); }
+.pill.soon { border-color: var(--warn); background: var(--warn-soft); }
+.pill.soon b { color: var(--warn); }
+.card { background: var(--panel); border: 1px solid var(--line); border-radius: 10px; padding: 20px; min-width: 0; }
+.scale-wrap { overflow-x: auto; }
+svg text { font-family: var(--font-mono); }
+.tbl-wrap { overflow-x: auto; }
+table { width: 100%; border-collapse: collapse; min-width: 860px; font-variant-numeric: tabular-nums; }
+th, td { text-align: left; padding: 9px 10px; border-bottom: 1px solid var(--line); vertical-align: top; }
+th { font-family: var(--font-mono); font-size: 11px; letter-spacing: .06em; text-transform: uppercase; color: var(--muted); font-weight: 500; }
+td.prog { font-weight: 500; }
+td.prog small { display: block; font-weight: 400; color: var(--muted); font-size: 12.5px; }
+td.days { font-family: var(--font-mono); white-space: nowrap; }
+.stripe { display: inline-block; width: 4px; height: 1.1em; border-radius: 2px; margin-right: 8px; vertical-align: -2px; background: var(--line); }
+tr.u .stripe { background: var(--bad); } tr.s .stripe { background: var(--warn); } tr.l .stripe { background: var(--ok); } tr.x .stripe { background: var(--muted); }
+tr.u td.days { color: var(--bad); font-weight: 500; } tr.s td.days { color: var(--warn); }
+.conf { font-size: 12px; font-family: var(--font-mono); padding: 2px 7px; border-radius: 999px; border: 1px solid var(--line); white-space: nowrap; }
+.conf.high { color: var(--ok); border-color: var(--ok); }
+.conf.med { color: var(--warn); border-color: var(--warn); }
+.conf.none { color: var(--bad); border-color: var(--bad); }
+.note { color: var(--muted); font-size: 13px; }
+.flag { color: var(--bad); font-weight: 500; }
+.grid2 { display: grid; grid-template-columns: repeat(2, minmax(0, 1fr)); gap: 16px; }
+ul.plain { margin: 0; padding-left: 18px; display: grid; gap: 8px; }
+a { color: var(--accent); }
+a:focus-visible { outline: 2px solid var(--accent); outline-offset: 2px; }
+.foot { font-size: 12.5px; color: var(--muted); }
+@media (max-width: 720px) { .grid2 { grid-template-columns: minmax(0, 1fr); } h1 { font-size: 25px; } }
+</style>
+
+<div class="page">
+  <header>
+    <div class="eyebrow">PhD applications · Fall 2027 entry · Checked 22 Nov 2026</div>
+    <h1>Deadlines for Fall 2027</h1>
+    <p class="lede">I read each date from the official program page on 22 November 2026. The "days left" values update each day. A gray date is not confirmed. Check each date in the portal before you submit.</p>
+  </header>
+
+  <div class="summary" id="summary"></div>
+
+  <section class="card">
+    <h2>Timeline</h2>
+    <div class="scale-wrap"><svg id="scale" role="img" aria-label="Timeline of deadlines from today to January 2027"></svg></div>
+  </section>
+
+  <section class="card">
+    <h2>Programs</h2>
+    <div class="tbl-wrap">
+      <table>
+        <thead><tr><th>Program</th><th>Deadline</th><th>Days left</th><th>Letters</th><th>GRE</th><th>English</th><th>Fee</th><th>Confidence</th></tr></thead>
+        <tbody id="rows"></tbody>
+      </table>
+    </div>
+  </section>
+
+  <div class="grid2">
+    <section class="card">
+      <h2>Professors: facts found</h2>
+      <ul class="plain">
+        <li><b>Fadel Adib</b> (MIT Signal Kinetics): "currently accepting new students". The group admits through EECS, Media Arts &amp; Sciences, and the MIT-WHOI Joint Program. On the application, select Adib as a "preferred reader". <a href="https://www.media.mit.edu/groups/signal-kinetics/applicant-information/" target="_blank" rel="noopener">Source</a></li>
+        <li><b>Levi (Veevee) Cai</b>: incoming Assistant Professor, Stanford Oceans Department, Fall 2027. Recruits PhD students for Fall 2027 and has an interest form. The page does not state the PhD program. <a href="https://oceans.stanford.edu/people/levi-veevee-cai/" target="_blank" rel="noopener">Source</a></li>
+        <li><b>Federico Tessari</b>: Tenure-Track Assistant Professor, MIT MechE, ALMA Robotics Lab. The lab page has an interest form. The page does not state the start year or the program. <a href="https://sites.mit.edu/alma-robotics-lab/prospective-students/" target="_blank" rel="noopener">Source</a></li>
+      </ul>
+    </section>
+    <section class="card">
+      <h2>Risks and open items</h2>
+      <ul class="plain">
+        <li><span class="flag">MIT-WHOI:</span> you have not emailed any faculty yet. The program "strongly encourages" an email to faculty first. 9 days are left.</li>
+        <li><span class="flag">Letters:</span> most programs need exactly 3 letters. Only Mandar Chitre has agreed. Oliver Armitage and Dusit Niyato are not asked yet.</li>
+        <li><b>CMU English:</b> CMU gives no waiver to non-native speakers. You are a native speaker. I must check how CMU defines "native speaker".</li>
+        <li><b>English for MIT:</b> the MIT-WHOI and EECS pages give minimum scores. The pages I read do not state a native-speaker exemption.</li>
+        <li><b>Oxford and Imperial:</b> the official pages blocked my reader (HTTP 403). The dates are not confirmed.</li>
+        <li><b>Cambridge funding:</b> the page shows Dec 8 "Gates Cambridge US round only". The date for international applicants is not clear.</li>
+      </ul>
+    </section>
+  </div>
+
+  <p class="foot">Sources are listed for each row in the project file sources/deadlines-2027.md. Removed by your choice: defence-funded labs (UW APL). Not in this list yet: programs in Europe outside the UK, in Canada, and in Asia/Australia. I research those next.</p>
+</div>
+
+<script>
+(function () {
+  // Dates in local time; deadlines are end-of-day in the stated zone.
+  const P = [
+    { n: "MIT-WHOI Joint Program", s: "AOSE / AOPE; first priority", d: "2026-12-01", t: "11:59 PM EST", l: "3", g: "Not required", e: "TOEFL 100 / IELTS 7.0", f: "Per dept.", c: "high", u: "https://mit.whoi.edu/admissions/faqs/" },
+    { n: "Graduate Ellison Scholars", s: "EIT step; Oxford step Jan–Mar 2027", d: "2026-12-01", t: "UK time", l: "—", g: "—", e: "Oxford rules", f: "—", c: "high", u: "https://www.eit.org/education-and-scholarships/graduate" },
+    { n: "MIT EECS", s: "Adib route; also Rus, Leonard", d: "2026-12-01", t: "time not stated", l: "3", g: "Not used", e: "TOEFL 100 / IELTS 7", f: "USD 90", c: "high", u: "https://www.eecs.mit.edu/academics/graduate-programs/admission-process/" },
+    { n: "MIT Mechanical Engineering", s: "Tessari, Hogan, Triantafyllou", d: "2026-12-01", t: "page shows no year", l: "3 min.", g: "Not required", e: "IELTS 7.0 / TOEFL 100", f: "—", c: "med", u: "https://mechegrad.mit.edu/prospective-students" },
+    { n: "Stanford ME PhD", s: "Khatib (CS courtesy), robotics", d: "2026-12-01", t: "time not stated", l: "3", g: "Not accepted", e: "If applicable", f: "—", c: "high", u: "https://me.stanford.edu/academics-admissions/graduate-programs/doctoral-program/phd-admissions" },
+    { n: "Stanford EE PhD", s: "NPTL route possible", d: "2026-12-01", t: "11:59 PM PST", l: "Exactly 3", g: "Not required", e: "TOEFL 90 / IELTS 7", f: "—", c: "high", u: "https://ee.stanford.edu/admissions/phd" },
+    { n: "Scripps (UCSD SIO) PhD", s: "Hodgkiss; Applied Ocean Science", d: "2026-12-02", t: "time not stated", l: "3", g: "Not required", e: "Test by November", f: "USD 155", c: "high", u: "https://scripps.ucsd.edu/doctoral/admissions/how-apply" },
+    { n: "Stanford CS PhD", s: "Khatib", d: "2026-12-08", t: "time not stated", l: "—", g: "—", e: "Test 6 wk before", f: "—", c: "high", u: "https://www.cs.stanford.edu/admissions-graduate-application-deadlines" },
+    { n: "Cambridge funding", s: "Gates / Cambridge Trusts", d: "2026-12-08", t: "labelled US round only", l: "—", g: "—", e: "—", f: "—", c: "med", u: "https://www.postgraduate.study.cam.ac.uk/courses/directory/egegpdpeg" },
+    { n: "CMU Robotics Institute PhD", s: "via SCS; early date passed", d: "2026-12-09", t: "3 PM EST", l: "3", g: "Program decides", e: "No waiver (non-native)", f: "USD 100", c: "high", u: "https://www.cs.cmu.edu/education/graduate-admissions" },
+    { n: "MIT Media Arts & Sciences MS", s: "Herr; PhD after year 2", d: "2026-12-15", t: "11:59 PM ET", l: "—", g: "—", e: "—", f: "USD 90", c: "high", u: "https://www.media.mit.edu/posts/admissions-timeline/" },
+    { n: "MIT Media Arts & Sciences PhD", s: "Adib route", d: "2027-01-06", t: "11:59 PM ET", l: "—", g: "—", e: "—", f: "USD 90", c: "high", u: "https://www.media.mit.edu/posts/admissions-timeline/" },
+    { n: "Oxford DPhil Engineering Science", s: "ORI, Neural Interfacing", d: null, t: "page blocked", l: "—", g: "—", e: "—", f: "—", c: "none", u: "https://www.ox.ac.uk/admissions/graduate/courses/dphil-engineering-science" },
+    { n: "Imperial PhD (President's Scholarship)", s: "EEE, Bioengineering", d: null, t: "third party: 1 Mar 2027", l: "—", g: "—", e: "—", f: "—", c: "none", u: "https://www.imperial.ac.uk/study/fees-and-funding/scholarships-search/" },
+    { n: "Cambridge PhD Engineering (course)", s: "funding needs the earlier date", d: "2027-05-13", t: "course deadline", l: "—", g: "—", e: "—", f: "—", c: "high", u: "https://www.postgraduate.study.cam.ac.uk/courses/directory/egegpdpeg" }
+  ];
+  const today = new Date(); today.setHours(0, 0, 0, 0);
+  const parse = s => { const [y, m, d] = s.split("-").map(Number); return new Date(y, m - 1, d); };
+  const daysLeft = s => Math.round((parse(s) - today) / 86400000);
+  const fmt = s => parse(s).toLocaleDateString("en-GB", { day: "numeric", month: "short", year: "numeric" });
+  const cls = d => d === null ? "x" : d < 0 ? "x" : d <= 10 ? "u" : d <= 30 ? "s" : "l";
+  const confTxt = { high: "Confirmed", med: "Check", none: "Not confirmed" };
+
+  // Table
+  const tb = document.getElementById("rows");
+  P.forEach(p => {
+    const d = p.d ? daysLeft(p.d) : null;
+    const tr = document.createElement("tr"); tr.className = cls(d);
+    const td = (txt, c) => { const x = document.createElement("td"); if (c) x.className = c; x.textContent = txt; return x; };
+    const prog = document.createElement("td"); prog.className = "prog";
+    const st = document.createElement("span"); st.className = "stripe";
+    const a = document.createElement("a"); a.href = p.u; a.target = "_blank"; a.rel = "noopener"; a.textContent = p.n;
+    const sm = document.createElement("small"); sm.textContent = p.s;
+    prog.append(st, a, sm);
+    const dl = document.createElement("td"); dl.textContent = p.d ? fmt(p.d) : "Unknown";
+    const dsm = document.createElement("small"); dsm.className = "note"; dsm.style.display = "block"; dsm.textContent = p.t; dl.appendChild(dsm);
+    const days = td(d === null ? "—" : d < 0 ? "Closed" : d === 0 ? "Today" : d + " d", "days");
+    const conf = document.createElement("td"); const cs = document.createElement("span"); cs.className = "conf " + p.c; cs.textContent = confTxt[p.c]; conf.appendChild(cs);
+    tr.append(prog, dl, days, td(p.l), td(p.g), td(p.e), td(p.f), conf);
+    tb.appendChild(tr);
+  });
+
+  // Summary pills
+  const known = P.filter(p => p.d).map(p => ({ p, d: daysLeft(p.d) })).filter(x => x.d >= 0);
+  const in10 = known.filter(x => x.d <= 10).length, in30 = known.filter(x => x.d > 10 && x.d <= 30).length;
+  const next = known.sort((a, b) => a.d - b.d)[0];
+  const sum = document.getElementById("summary");
+  const pill = (label, val, c) => { const s = document.createElement("span"); s.className = "pill " + (c || ""); const b = document.createElement("b"); b.textContent = val; s.append(b, document.createTextNode(label)); sum.appendChild(s); };
+  if (next) pill(" days to the next deadline (" + fmt(next.p.d) + ")", String(next.d), "urgent");
+  pill(" programs close in 10 days or less", String(in10), "urgent");
+  pill(" programs close in 11 to 30 days", String(in30), "soon");
+  pill(" dates not confirmed", String(P.filter(p => p.c === "none").length));
+
+  // Timeline scale: today -> 2027-01-15, ticks weekly
+  const svg = document.getElementById("scale");
+  const start = new Date(today), end = new Date(2027, 0, 15);
+  const W = 1060, H = 150, L = 20, R = 20, Y = 92;
+  svg.setAttribute("viewBox", "0 0 " + W + " " + H); svg.setAttribute("width", W); svg.setAttribute("height", H);
+  const x = dt => L + (dt - start) / (end - start) * (W - L - R);
+  const NS = "http://www.w3.org/2000/svg";
+  const el = (t, a, txt) => { const e = document.createElementNS(NS, t); for (const k in a) e.setAttribute(k, a[k]); if (txt) e.textContent = txt; svg.appendChild(e); return e; };
+  const css = getComputedStyle(document.documentElement);
+  const col = n => css.getPropertyValue(n).trim();
+  el("line", { x1: L, x2: W - R, y1: Y, y2: Y, stroke: col("--line"), "stroke-width": 2 });
+  for (let t = new Date(start); t <= end; t.setDate(t.getDate() + 7)) {
+    el("line", { x1: x(t), x2: x(t), y1: Y - 4, y2: Y + 4, stroke: col("--muted"), "stroke-width": 1 });
+    el("text", { x: x(t), y: Y + 20, "text-anchor": "middle", "font-size": 11, fill: col("--muted") }, t.toLocaleDateString("en-GB", { day: "numeric", month: "short" }));
+  }
+  el("text", { x: L, y: Y + 40, "font-size": 11, fill: col("--accent") }, "Today");
+  // Group programs by date
+  const byDate = {};
+  P.filter(p => p.d && parse(p.d) <= end && parse(p.d) >= start).forEach(p => { (byDate[p.d] = byDate[p.d] || []).push(p.n); });
+  Object.keys(byDate).sort().forEach((d, i) => {
+    const xx = x(parse(d)), dl = daysLeft(d);
+    const c = dl <= 10 ? col("--bad") : dl <= 30 ? col("--warn") : col("--ok");
+    el("circle", { cx: xx, cy: Y, r: 6, fill: c });
+    const up = i % 2 === 0;
+    const ty = up ? 22 : 46;
+    el("line", { x1: xx, x2: xx, y1: ty + 6, y2: Y - 7, stroke: c, "stroke-width": 1, "stroke-dasharray": "2 3" });
+    const anchor = xx > W - 220 ? "end" : "start";
+    el("text", { x: xx + (anchor === "start" ? 4 : -4), y: ty, "font-size": 11.5, fill: col("--fg"), "text-anchor": anchor },
+      parse(d).toLocaleDateString("en-GB", { day: "numeric", month: "short" }) + " · " + byDate[d].length + " program" + (byDate[d].length > 1 ? "s" : ""));
+  });
+})();
+</script>
