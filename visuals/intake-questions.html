@@ -1,0 +1,453 @@
+<title>PhD Intake Questions</title>
+<meta name="claude:viewport-fit-sides" content="cover">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=IBM+Plex+Sans:wght@400;500;600&family=IBM+Plex+Mono:wght@400;500&family=Space+Grotesk:wght@500;600&display=swap">
+<style>
+/* Layout: sticky section index on the left (desktop), one long form column on the right; one column on phones. */
+:root {
+  --bg: #f4f6f9;
+  --panel: #ffffff;
+  --fg: #18202e;
+  --muted: #5a6577;
+  --line: #d5dbe5;
+  --accent: #2d55b8;
+  --accent-soft: #e3eafa;
+  --ok: #1f7a4d;
+  --warn: #a35a00;
+  --font-display: "Space Grotesk", "IBM Plex Sans", system-ui, sans-serif;
+  --font-body: "IBM Plex Sans", system-ui, -apple-system, "Segoe UI", sans-serif;
+  --font-mono: "IBM Plex Mono", ui-monospace, "SF Mono", Menlo, monospace;
+}
+@media (prefers-color-scheme: dark) {
+  :root:not([data-theme="light"]) {
+    --bg: #11151d; --panel: #181e29; --fg: #e4e9f2; --muted: #98a3b6; --line: #2c3545;
+    --accent: #7d9df0; --accent-soft: #1f2a44; --ok: #5cc28f; --warn: #e5a34a; color-scheme: dark;
+  }
+}
+:root[data-theme="dark"] {
+  --bg: #11151d; --panel: #181e29; --fg: #e4e9f2; --muted: #98a3b6; --line: #2c3545;
+  --accent: #7d9df0; --accent-soft: #1f2a44; --ok: #5cc28f; --warn: #e5a34a; color-scheme: dark;
+}
+* { box-sizing: border-box; }
+body {
+  background: var(--bg); color: var(--fg); font-family: var(--font-body); font-size: 15px; line-height: 1.55;
+  padding-left: max(16px, env(safe-area-inset-left, 0px));
+  padding-right: max(16px, env(safe-area-inset-right, 0px));
+  padding-block: 32px 96px;
+}
+.wrap { max-width: 1040px; margin: 0 auto; display: grid; grid-template-columns: 220px minmax(0, 1fr); gap: 40px; }
+header.top { max-width: 1040px; margin: 0 auto 28px; display: grid; gap: 8px; }
+.eyebrow { font-family: var(--font-mono); font-size: 12px; letter-spacing: .08em; text-transform: uppercase; color: var(--muted); }
+h1 { font-family: var(--font-display); font-weight: 600; font-size: 30px; line-height: 1.15; margin: 0; text-wrap: balance; }
+.lede { color: var(--muted); max-width: 62ch; margin: 0; }
+nav.index { position: sticky; top: calc(env(safe-area-inset-top, 0px) + 24px); align-self: start; display: grid; gap: 4px; }
+nav.index a { display: flex; justify-content: space-between; gap: 8px; padding: 8px 10px; border-radius: 6px; color: var(--fg); text-decoration: none; font-size: 14px; }
+nav.index a:hover { background: var(--accent-soft); }
+nav.index .count { font-family: var(--font-mono); font-size: 12px; color: var(--muted); font-variant-numeric: tabular-nums; }
+nav.index .count.done { color: var(--ok); }
+.status { margin-top: 16px; padding: 12px 10px; border-top: 1px solid var(--line); font-size: 13px; color: var(--muted); display: grid; gap: 10px; }
+.status strong { color: var(--fg); font-weight: 500; }
+form { display: grid; gap: 28px; min-width: 0; }
+section { background: var(--panel); border: 1px solid var(--line); border-radius: 10px; padding: 24px; display: grid; gap: 18px; min-width: 0; scroll-margin-top: 24px; }
+section > header { display: grid; gap: 4px; }
+h2 { font-family: var(--font-display); font-weight: 600; font-size: 20px; margin: 0; }
+.hint { color: var(--muted); font-size: 14px; margin: 0; max-width: 64ch; }
+.field { display: grid; gap: 6px; min-width: 0; }
+label, .label { font-weight: 500; font-size: 14px; }
+.opt { font-weight: 400; color: var(--muted); font-size: 13px; }
+input[type=text], input[type=number], select, textarea {
+  width: 100%; font: inherit; color: var(--fg); background: var(--bg); border: 1px solid var(--line);
+  border-radius: 6px; padding: 9px 11px;
+}
+textarea { min-height: 96px; resize: vertical; }
+input:focus-visible, select:focus-visible, textarea:focus-visible, button:focus-visible, a:focus-visible {
+  outline: 2px solid var(--accent); outline-offset: 2px;
+}
+.grid2 { display: grid; grid-template-columns: repeat(2, minmax(0, 1fr)); gap: 14px; }
+.grid4 { display: grid; grid-template-columns: repeat(4, minmax(0, 1fr)); gap: 14px; }
+.chips { display: flex; flex-wrap: wrap; gap: 8px; }
+.chip { position: relative; }
+.chip input { position: absolute; opacity: 0; inset: 0; cursor: pointer; }
+.chip span { display: inline-block; padding: 6px 12px; border: 1px solid var(--line); border-radius: 999px; font-size: 14px; background: var(--bg); }
+.chip input:checked + span { background: var(--accent-soft); border-color: var(--accent); color: var(--accent); font-weight: 500; }
+.chip input:focus-visible + span { outline: 2px solid var(--accent); outline-offset: 2px; }
+.rows { display: grid; gap: 12px; }
+.row { border: 1px dashed var(--line); border-radius: 8px; padding: 14px; display: grid; gap: 12px; }
+.row-head { display: flex; justify-content: space-between; align-items: center; gap: 8px; }
+.row-head .tag { font-family: var(--font-mono); font-size: 12px; color: var(--muted); }
+button { font: inherit; cursor: pointer; border-radius: 6px; }
+.btn { background: var(--accent); color: var(--panel); border: 1px solid var(--accent); padding: 9px 16px; font-weight: 500; }
+.btn.ghost { background: transparent; color: var(--accent); }
+.btn.small { padding: 5px 10px; font-size: 13px; }
+.link { background: none; border: none; color: var(--muted); font-size: 13px; text-decoration: underline; padding: 2px; }
+.empty { color: var(--muted); font-size: 14px; font-style: italic; }
+.savebar { display: flex; flex-wrap: wrap; gap: 10px; align-items: center; }
+.dot { display: inline-block; width: 8px; height: 8px; border-radius: 50%; background: var(--muted); margin-right: 6px; vertical-align: middle; }
+.dot.ok { background: var(--ok); } .dot.warn { background: var(--warn); }
+.privacy { font-size: 13px; color: var(--muted); border-left: 3px solid var(--line); padding-left: 12px; max-width: 64ch; }
+@media (max-width: 820px) {
+  .wrap { grid-template-columns: minmax(0, 1fr); gap: 20px; }
+  nav.index { position: static; grid-template-columns: repeat(2, minmax(0, 1fr)); }
+  .grid4 { grid-template-columns: repeat(2, minmax(0, 1fr)); }
+}
+@media (max-width: 480px) {
+  .grid2 { grid-template-columns: minmax(0, 1fr); }
+  section { padding: 18px; }
+  h1 { font-size: 25px; }
+}
+@media (prefers-reduced-motion: reduce) { html { scroll-behavior: auto; } }
+html { scroll-behavior: smooth; }
+</style>
+
+<header class="top">
+  <div class="eyebrow">PhD applications · Intake · Engineering / CS</div>
+  <h1>Questions before the research starts</h1>
+  <p class="lede">Answer the questions in each section. Short notes are OK. Leave a field empty if you do not know. The page saves your answers, and Claude reads the answers to start the program research.</p>
+</header>
+
+<div class="wrap">
+  <nav class="index" aria-label="Sections">
+    <a href="#s-topics">1. Topics <span class="count" data-count="topics"></span></a>
+    <a href="#s-labs">2. Labs and programs <span class="count" data-count="labs"></span></a>
+    <a href="#s-start">3. Start date <span class="count" data-count="start"></span></a>
+    <a href="#s-limits">4. Limits <span class="count" data-count="limits"></span></a>
+    <a href="#s-background">5. Background <span class="count" data-count="background"></span></a>
+    <a href="#s-recs">6. Recommenders <span class="count" data-count="recs"></span></a>
+    <a href="#s-other">7. Other notes <span class="count" data-count="other"></span></a>
+    <div class="status">
+      <div id="save-state"><span class="dot"></span>Loading saved answers…</div>
+      <button type="button" class="btn" id="save-btn">Save answers</button>
+      <button type="button" class="btn ghost" id="copy-btn">Copy answers as text</button>
+      <div id="copy-state" aria-live="polite"></div>
+    </div>
+  </nav>
+
+  <form id="intake" autocomplete="off">
+    <section id="s-topics">
+      <header>
+        <h2>1. Research topics</h2>
+        <p class="hint">Tell Claude what you want to research. Claude uses these words to find labs and supervisors.</p>
+      </header>
+      <div class="field">
+        <span class="label">Sub-fields (from your earlier answer)</span>
+        <div class="chips" id="subfields">
+          <label class="chip"><input type="checkbox" value="Robotics / Control"><span>Robotics / Control</span></label>
+          <label class="chip"><input type="checkbox" value="Hardware / Electronics"><span>Hardware / Electronics</span></label>
+          <label class="chip"><input type="checkbox" value="Systems / Software"><span>Systems / Software</span></label>
+          <label class="chip"><input type="checkbox" value="AI / Machine learning"><span>AI / Machine learning</span></label>
+        </div>
+      </div>
+      <div class="field">
+        <label for="topics">Topics that interest you <span class="opt">(one per line)</span></label>
+        <textarea id="topics" placeholder="Example: embedded control for legged robots&#10;Example: FPGA acceleration for SLAM"></textarea>
+      </div>
+      <div class="field">
+        <label for="avoid">Topics you do not want <span class="opt">(optional)</span></label>
+        <input type="text" id="avoid" placeholder="Example: pure theory with no hardware">
+      </div>
+    </section>
+
+    <section id="s-labs">
+      <header>
+        <h2>2. Labs, professors, and programs</h2>
+        <p class="hint">Add each lab, professor, or program that you already know about. Claude checks each one and finds more like them.</p>
+      </header>
+      <div class="rows" id="labs"></div>
+      <div><button type="button" class="btn ghost small" id="add-lab">Add a lab or program</button></div>
+    </section>
+
+    <section id="s-start">
+      <header>
+        <h2>3. Start date</h2>
+        <p class="hint">The start date sets the deadlines. Many fall 2027 deadlines in the USA are in December 2026.</p>
+      </header>
+      <div class="grid2">
+        <div class="field">
+          <label for="start">When do you want to start?</label>
+          <select id="start">
+            <option value="">Select…</option>
+            <option>Fall 2027</option>
+            <option>Spring 2028</option>
+            <option>Fall 2028</option>
+            <option>Any time</option>
+            <option>Other</option>
+          </select>
+        </div>
+        <div class="field">
+          <label for="start-other">If other, which date? <span class="opt">(optional)</span></label>
+          <input type="text" id="start-other" placeholder="Example: January 2028">
+        </div>
+      </div>
+      <div class="field">
+        <label for="applied-before">Did you apply to PhD programs before? <span class="opt">(optional)</span></label>
+        <input type="text" id="applied-before" placeholder="Example: No / Yes, 3 programs in 2025">
+      </div>
+    </section>
+
+    <section id="s-limits">
+      <header>
+        <h2>4. Limits</h2>
+        <p class="hint">These answers remove programs that do not fit you.</p>
+      </header>
+      <div class="grid2">
+        <div class="field">
+          <label for="funding">Do you need full funding?</label>
+          <select id="funding">
+            <option value="">Select…</option>
+            <option>Yes, full funding only</option>
+            <option>Funding preferred, not required</option>
+            <option>I have my own funding or a scholarship</option>
+          </select>
+        </div>
+        <div class="field">
+          <label for="fee-budget">Budget for application fees <span class="opt">(optional)</span></label>
+          <input type="text" id="fee-budget" placeholder="Example: USD 1000 in total">
+        </div>
+      </div>
+      <div class="field">
+        <label for="places">Countries or cities that you must have, or must not have <span class="opt">(optional)</span></label>
+        <input type="text" id="places" placeholder="Example: Only USA, UK, Switzerland, Singapore. No very cold cities.">
+      </div>
+      <div class="field">
+        <label for="visa">Visa limits <span class="opt">(optional, give only what you want to share)</span></label>
+        <input type="text" id="visa" placeholder="Example: I need a student visa for the USA and UK">
+      </div>
+      <div class="field">
+        <label for="app-count">How many programs do you want to apply to?</label>
+        <input type="text" id="app-count" placeholder="Example: 8 to 12">
+      </div>
+    </section>
+
+    <section id="s-background">
+      <header>
+        <h2>5. Your background</h2>
+        <p class="hint">Claude uses this to find programs at the correct level and to plan your documents.</p>
+      </header>
+      <div class="grid2">
+        <div class="field">
+          <label for="degree">Highest degree now</label>
+          <select id="degree">
+            <option value="">Select…</option>
+            <option>Bachelor (in progress)</option>
+            <option>Bachelor (completed)</option>
+            <option>Master (in progress)</option>
+            <option>Master (completed)</option>
+            <option>Other</option>
+          </select>
+        </div>
+        <div class="field">
+          <label for="degree-field">Degree subject</label>
+          <input type="text" id="degree-field" placeholder="Example: Electrical and Electronic Engineering">
+        </div>
+        <div class="field">
+          <label for="school">University <span class="opt">(optional)</span></label>
+          <input type="text" id="school">
+        </div>
+        <div class="field">
+          <label for="gpa">Grade or GPA <span class="opt">(optional)</span></label>
+          <input type="text" id="gpa" placeholder="Example: 3.7/4.0 or First Class Honours">
+        </div>
+      </div>
+      <div class="field">
+        <span class="label">Test scores <span class="opt">(write "none", "planned", or the score)</span></span>
+        <div class="grid4">
+          <div class="field"><label for="t-gre">GRE</label><input type="text" id="t-gre"></div>
+          <div class="field"><label for="t-toefl">TOEFL</label><input type="text" id="t-toefl"></div>
+          <div class="field"><label for="t-ielts">IELTS</label><input type="text" id="t-ielts"></div>
+          <div class="field"><label for="t-other">Other</label><input type="text" id="t-other"></div>
+        </div>
+      </div>
+      <div class="field">
+        <label for="pubs">Publications <span class="opt">(titles, venues, or "none")</span></label>
+        <textarea id="pubs"></textarea>
+      </div>
+      <div class="field">
+        <label for="research">Research, project, or work experience</label>
+        <textarea id="research" placeholder="Example: Final year project on motor control with STM32. 1 year as embedded engineer."></textarea>
+      </div>
+    </section>
+
+    <section id="s-recs">
+      <header>
+        <h2>6. Recommenders</h2>
+        <p class="hint">Most programs need 3 letters. Give the role of each person. You do not need to give names.</p>
+      </header>
+      <div class="rows" id="recs"></div>
+      <div><button type="button" class="btn ghost small" id="add-rec">Add a recommender</button></div>
+    </section>
+
+    <section id="s-other">
+      <header>
+        <h2>7. Other notes</h2>
+        <p class="hint">Write anything else that Claude must know. For example: dates you are busy, or what you want Claude to do first.</p>
+      </header>
+      <div class="field">
+        <label for="other">Notes</label>
+        <textarea id="other"></textarea>
+      </div>
+      <p class="privacy">Privacy: this page is private on your claude.ai account. The answers stay in this page's storage. Nobody else can see them unless you share the page. Claude uses the answers only for this project.</p>
+      <div class="savebar">
+        <button type="button" class="btn" id="save-btn-2">Save answers</button>
+        <span class="hint">After you save, tell Claude in chat: "answers are ready".</span>
+      </div>
+    </section>
+  </form>
+</div>
+
+<script>
+(function () {
+  const SIMPLE = ["topics","avoid","start","start-other","applied-before","funding","fee-budget","places","visa","app-count",
+    "degree","degree-field","school","gpa","t-gre","t-toefl","t-ielts","t-other","pubs","research","other"];
+  const SECTIONS = {
+    topics: ["subfields","topics"],
+    labs: ["labs"],
+    start: ["start"],
+    limits: ["funding","places","visa","app-count"],
+    background: ["degree","degree-field","t-gre","t-toefl","t-ielts","pubs","research"],
+    recs: ["recs"],
+    other: ["other"]
+  };
+  const LAB_FIELDS = [["name","Lab, professor, or program"],["uni","University"],["country","Country"],["why","Why this one? (optional)"]];
+  const REC_FIELDS = [["role","Role (example: thesis supervisor)"],["know","How long and how they know you"],["asked","Did you ask them yet?"]];
+
+  let state = { subfields: [], labs: [], recs: [] };
+  SIMPLE.forEach(k => state[k] = "");
+  let db = null, docRef = null, loaded = false, dirty = false, saving = false, timer = null;
+  const $ = id => document.getElementById(id);
+
+  function setStatus(text, kind) {
+    $("save-state").innerHTML = '<span class="dot ' + (kind || "") + '"></span>';
+    $("save-state").appendChild(document.createTextNode(text));
+  }
+
+  function renderRows(kind) {
+    const host = $(kind), fields = kind === "labs" ? LAB_FIELDS : REC_FIELDS, list = state[kind];
+    host.textContent = "";
+    if (!list.length) {
+      const p = document.createElement("p"); p.className = "empty";
+      p.textContent = kind === "labs" ? "No labs added yet. Select \"Add a lab or program\"." : "No recommenders added yet. Select \"Add a recommender\".";
+      host.appendChild(p); return;
+    }
+    list.forEach((item, i) => {
+      const row = document.createElement("div"); row.className = "row";
+      const head = document.createElement("div"); head.className = "row-head";
+      const tag = document.createElement("span"); tag.className = "tag";
+      tag.textContent = (kind === "labs" ? "Entry " : "Recommender ") + (i + 1);
+      const rm = document.createElement("button"); rm.type = "button"; rm.className = "link"; rm.textContent = "Remove";
+      rm.addEventListener("click", () => { state[kind].splice(i, 1); renderRows(kind); changed(); });
+      head.append(tag, rm); row.appendChild(head);
+      const g = document.createElement("div"); g.className = "grid2";
+      fields.forEach(([key, lab]) => {
+        const f = document.createElement("div"); f.className = "field";
+        const id = kind + "-" + i + "-" + key;
+        const l = document.createElement("label"); l.htmlFor = id; l.textContent = lab;
+        const inp = document.createElement("input"); inp.type = "text"; inp.id = id; inp.value = item[key] || "";
+        inp.addEventListener("input", () => { state[kind][i][key] = inp.value; changed(); });
+        f.append(l, inp); g.appendChild(f);
+      });
+      row.appendChild(g); host.appendChild(row);
+    });
+  }
+
+  function fillForm() {
+    SIMPLE.forEach(k => { const el = $(k); if (el) el.value = state[k] || ""; });
+    document.querySelectorAll("#subfields input").forEach(cb => cb.checked = (state.subfields || []).includes(cb.value));
+    renderRows("labs"); renderRows("recs"); updateCounts();
+  }
+
+  function filled(key) {
+    const v = state[key];
+    if (Array.isArray(v)) return v.length > 0;
+    return typeof v === "string" && v.trim() !== "";
+  }
+  function updateCounts() {
+    Object.entries(SECTIONS).forEach(([sec, keys]) => {
+      const n = keys.filter(filled).length, el = document.querySelector('[data-count="' + sec + '"]');
+      el.textContent = n + "/" + keys.length; el.classList.toggle("done", n === keys.length);
+    });
+  }
+
+  function changed() {
+    dirty = true; updateCounts();
+    if (db) { setStatus("Changes not saved yet", "warn"); clearTimeout(timer); timer = setTimeout(save, 2000); }
+  }
+
+  async function save() {
+    clearTimeout(timer);
+    if (!docRef) { setStatus("Saving is not available here. Use \"Copy answers as text\" and paste in chat.", "warn"); return; }
+    if (saving) { timer = setTimeout(save, 1000); return; }
+    saving = true; dirty = false;
+    const body = JSON.parse(JSON.stringify(state)); body.updatedAt = new Date().toISOString();
+    try {
+      await docRef.set(body);
+      const t = new Date().toLocaleTimeString([], { hour: "2-digit", minute: "2-digit" });
+      setStatus(dirty ? "Changes not saved yet" : "Saved at " + t, dirty ? "warn" : "ok");
+    } catch (e) {
+      dirty = true;
+      if (e && e.code === "invalid_argument") setStatus("You cannot save on this page. Ask the owner for edit access.", "warn");
+      else setStatus("Save failed. Select \"Save answers\" again.", "warn");
+    } finally { saving = false; }
+  }
+
+  function asText() {
+    const L = [];
+    const v = k => (state[k] || "").trim() || "(empty)";
+    L.push("PHD INTAKE ANSWERS", "");
+    L.push("1. TOPICS", "Sub-fields: " + ((state.subfields || []).join(", ") || "(empty)"), "Topics:\n" + v("topics"), "Do not want: " + v("avoid"), "");
+    L.push("2. LABS AND PROGRAMS");
+    if (!state.labs.length) L.push("(empty)");
+    state.labs.forEach((r, i) => L.push((i + 1) + ". " + [r.name, r.uni, r.country].filter(Boolean).join(" | ") + (r.why ? " — " + r.why : "")));
+    L.push("", "3. START", "Start: " + v("start") + (state["start-other"] ? " (" + state["start-other"] + ")" : ""), "Applied before: " + v("applied-before"), "");
+    L.push("4. LIMITS", "Funding: " + v("funding"), "Fee budget: " + v("fee-budget"), "Places: " + v("places"), "Visa: " + v("visa"), "Number of programs: " + v("app-count"), "");
+    L.push("5. BACKGROUND", "Degree: " + v("degree") + " in " + v("degree-field"), "University: " + v("school"), "Grade: " + v("gpa"),
+      "Tests: GRE " + v("t-gre") + "; TOEFL " + v("t-toefl") + "; IELTS " + v("t-ielts") + "; Other " + v("t-other"),
+      "Publications:\n" + v("pubs"), "Experience:\n" + v("research"), "");
+    L.push("6. RECOMMENDERS");
+    if (!state.recs.length) L.push("(empty)");
+    state.recs.forEach((r, i) => L.push((i + 1) + ". " + [r.role, r.know, r.asked && ("asked: " + r.asked)].filter(Boolean).join(" | ")));
+    L.push("", "7. OTHER", v("other"));
+    return L.join("\n");
+  }
+
+  // Wire inputs
+  SIMPLE.forEach(k => { const el = $(k); el.addEventListener("input", () => { state[k] = el.value; changed(); }); el.addEventListener("change", () => { state[k] = el.value; changed(); }); });
+  document.querySelectorAll("#subfields input").forEach(cb => cb.addEventListener("change", () => {
+    state.subfields = [...document.querySelectorAll("#subfields input:checked")].map(x => x.value); changed();
+  }));
+  $("add-lab").addEventListener("click", () => { state.labs.push({ name: "", uni: "", country: "", why: "" }); renderRows("labs"); changed(); $("labs-" + (state.labs.length - 1) + "-name").focus(); });
+  $("add-rec").addEventListener("click", () => { state.recs.push({ role: "", know: "", asked: "" }); renderRows("recs"); changed(); $("recs-" + (state.recs.length - 1) + "-role").focus(); });
+  $("save-btn").addEventListener("click", save);
+  $("save-btn-2").addEventListener("click", save);
+  $("copy-btn").addEventListener("click", () => {
+    const text = asText();
+    navigator.clipboard.writeText(text).then(() => { $("copy-state").textContent = "Copied. Paste the text in chat."; })
+      .catch(() => {
+        const ta = document.createElement("textarea"); ta.value = text; ta.style.minHeight = "200px";
+        $("copy-state").textContent = "Copy is blocked here. Select the text below and copy it:";
+        $("copy-state").appendChild(ta); ta.select();
+      });
+  });
+
+  fillForm();
+
+  // Load saved answers
+  const loadTimer = setTimeout(() => { if (!loaded) setStatus("Saved answers cannot be reached yet. You can type now.", "warn"); }, 10000);
+  if (window.claude && window.claude.use) {
+    window.claude.use("db").then(d => {
+      if (!d) { clearTimeout(loadTimer); setStatus("Saving is not available here. Use \"Copy answers as text\" and paste in chat.", "warn"); return; }
+      db = d; docRef = db.doc("intake/answers");
+      docRef.onSnapshot(snap => {
+        if (snap.metadata.fromCache && !snap.exists) return;
+        if (!loaded && !dirty) {
+          if (snap.exists) { state = Object.assign(state, snap.data()); state = JSON.parse(JSON.stringify(state)); fillForm(); }
+          loaded = true; clearTimeout(loadTimer);
+          setStatus(snap.exists ? "Saved answers loaded" : "No answers saved yet", snap.exists ? "ok" : "");
+        } else if (!loaded) { loaded = true; clearTimeout(loadTimer); }
+      }, () => { clearTimeout(loadTimer); setStatus("Saved answers cannot be loaded. Your typing is kept on this page only.", "warn"); });
+    });
+  } else {
+    clearTimeout(loadTimer);
+    setStatus("Saving is not available here. Use \"Copy answers as text\" and paste in chat.", "warn");
+  }
+})();
+</script>
