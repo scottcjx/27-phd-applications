@@ -17,3 +17,4 @@ Each entry has: date and time, actor, action, files, reason.
 | 2026-11-22 16:32 | Claude | Incoming professor search round 1: 11 extended web searches. Wrote leads file. | sources/incoming-profs-search-1.md | User request: incoming profs in next 6 months, PhD from June. |
 | 2026-11-22 16:35 | Claude | Asked 4 questions. Made and published deadline page (private). | visuals/deadlines.html, PROFILE.md | User chose deadline web page. |
 | 2026-11-22 16:35 | Claude | Incoming professor search round 2: 4 extended searches (USA/Canada, UK/Europe). Added leads. | sources/incoming-profs-search-1.md | User scope answers. |
+| 2026-11-22 16:40 | Claude | Read MIT-WHOI requirement pages and WHOI faculty pages with 3 web-fetch agents. Wrote requirements and 15-person faculty fit list. | sources/mit-whoi.md | User: start MIT-WHOI plan; find more WHOI faculty. |
