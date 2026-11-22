@@ -3,17 +3,10 @@
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=IBM+Plex+Sans:wght@400;500;600&family=IBM+Plex+Mono:wght@400;500&family=Space+Grotesk:wght@500;600&display=swap">
 <style>
-/* Layout: sticky section index on the left (desktop), one long form column on the right; one column on phones. */
+/* Layout: sticky section index on the left (desktop), one form column on the right; one column on phones. */
 :root {
-  --bg: #f4f6f9;
-  --panel: #ffffff;
-  --fg: #18202e;
-  --muted: #5a6577;
-  --line: #d5dbe5;
-  --accent: #2d55b8;
-  --accent-soft: #e3eafa;
-  --ok: #1f7a4d;
-  --warn: #a35a00;
+  --bg: #f4f6f9; --panel: #ffffff; --fg: #18202e; --muted: #5a6577; --line: #d5dbe5;
+  --accent: #2d55b8; --accent-soft: #e3eafa; --ok: #1f7a4d; --warn: #a35a00; --bad: #b3261e; --warn-soft: #fbefdc;
   --font-display: "Space Grotesk", "IBM Plex Sans", system-ui, sans-serif;
   --font-body: "IBM Plex Sans", system-ui, -apple-system, "Segoe UI", sans-serif;
   --font-mono: "IBM Plex Mono", ui-monospace, "SF Mono", Menlo, monospace;
@@ -21,99 +14,112 @@
 @media (prefers-color-scheme: dark) {
   :root:not([data-theme="light"]) {
     --bg: #11151d; --panel: #181e29; --fg: #e4e9f2; --muted: #98a3b6; --line: #2c3545;
-    --accent: #7d9df0; --accent-soft: #1f2a44; --ok: #5cc28f; --warn: #e5a34a; color-scheme: dark;
+    --accent: #7d9df0; --accent-soft: #1f2a44; --ok: #5cc28f; --warn: #e5a34a; --bad: #f08a80; --warn-soft: #33281a; color-scheme: dark;
   }
 }
 :root[data-theme="dark"] {
   --bg: #11151d; --panel: #181e29; --fg: #e4e9f2; --muted: #98a3b6; --line: #2c3545;
-  --accent: #7d9df0; --accent-soft: #1f2a44; --ok: #5cc28f; --warn: #e5a34a; color-scheme: dark;
+  --accent: #7d9df0; --accent-soft: #1f2a44; --ok: #5cc28f; --warn: #e5a34a; --bad: #f08a80; --warn-soft: #33281a; color-scheme: dark;
 }
 * { box-sizing: border-box; }
+html { scroll-behavior: smooth; }
+@media (prefers-reduced-motion: reduce) { html { scroll-behavior: auto; } }
 body {
   background: var(--bg); color: var(--fg); font-family: var(--font-body); font-size: 15px; line-height: 1.55;
   padding-left: max(16px, env(safe-area-inset-left, 0px));
   padding-right: max(16px, env(safe-area-inset-right, 0px));
   padding-block: 32px 96px;
 }
-.wrap { max-width: 1040px; margin: 0 auto; display: grid; grid-template-columns: 220px minmax(0, 1fr); gap: 40px; }
-header.top { max-width: 1040px; margin: 0 auto 28px; display: grid; gap: 8px; }
+header.top { max-width: 1080px; margin: 0 auto 20px; display: grid; gap: 8px; }
 .eyebrow { font-family: var(--font-mono); font-size: 12px; letter-spacing: .08em; text-transform: uppercase; color: var(--muted); }
 h1 { font-family: var(--font-display); font-weight: 600; font-size: 30px; line-height: 1.15; margin: 0; text-wrap: balance; }
-.lede { color: var(--muted); max-width: 62ch; margin: 0; }
-nav.index { position: sticky; top: calc(env(safe-area-inset-top, 0px) + 24px); align-self: start; display: grid; gap: 4px; }
-nav.index a { display: flex; justify-content: space-between; gap: 8px; padding: 8px 10px; border-radius: 6px; color: var(--fg); text-decoration: none; font-size: 14px; }
+.lede { color: var(--muted); max-width: 64ch; margin: 0; }
+.alert { max-width: 1080px; margin: 0 auto 28px; background: var(--warn-soft); border: 1px solid var(--warn); border-radius: 10px; padding: 14px 18px; display: flex; flex-wrap: wrap; gap: 6px 18px; align-items: baseline; }
+.alert .days { font-family: var(--font-mono); font-size: 22px; font-weight: 500; color: var(--warn); font-variant-numeric: tabular-nums; }
+.alert p { margin: 0; flex: 1 1 320px; }
+.wrap { max-width: 1080px; margin: 0 auto; display: grid; grid-template-columns: 230px minmax(0, 1fr); gap: 40px; }
+nav.index { position: sticky; top: calc(env(safe-area-inset-top, 0px) + 24px); align-self: start; display: grid; gap: 2px; }
+nav.index a { display: flex; justify-content: space-between; gap: 8px; padding: 7px 10px; border-radius: 6px; color: var(--fg); text-decoration: none; font-size: 14px; }
 nav.index a:hover { background: var(--accent-soft); }
-nav.index .count { font-family: var(--font-mono); font-size: 12px; color: var(--muted); font-variant-numeric: tabular-nums; }
-nav.index .count.done { color: var(--ok); }
-.status { margin-top: 16px; padding: 12px 10px; border-top: 1px solid var(--line); font-size: 13px; color: var(--muted); display: grid; gap: 10px; }
-.status strong { color: var(--fg); font-weight: 500; }
+.count { font-family: var(--font-mono); font-size: 12px; color: var(--muted); font-variant-numeric: tabular-nums; white-space: nowrap; }
+.count.done { color: var(--ok); }
+.status { margin-top: 14px; padding: 12px 10px; border-top: 1px solid var(--line); font-size: 13px; color: var(--muted); display: grid; gap: 10px; }
 form { display: grid; gap: 28px; min-width: 0; }
 section { background: var(--panel); border: 1px solid var(--line); border-radius: 10px; padding: 24px; display: grid; gap: 18px; min-width: 0; scroll-margin-top: 24px; }
 section > header { display: grid; gap: 4px; }
 h2 { font-family: var(--font-display); font-weight: 600; font-size: 20px; margin: 0; }
-.hint { color: var(--muted); font-size: 14px; margin: 0; max-width: 64ch; }
+h3 { font-size: 13px; font-family: var(--font-mono); letter-spacing: .06em; text-transform: uppercase; color: var(--muted); margin: 6px 0 0; font-weight: 500; }
+.hint { color: var(--muted); font-size: 14px; margin: 0; max-width: 66ch; }
 .field { display: grid; gap: 6px; min-width: 0; }
 label, .label { font-weight: 500; font-size: 14px; }
 .opt { font-weight: 400; color: var(--muted); font-size: 13px; }
-input[type=text], input[type=number], select, textarea {
-  width: 100%; font: inherit; color: var(--fg); background: var(--bg); border: 1px solid var(--line);
-  border-radius: 6px; padding: 9px 11px;
+input[type=text], select, textarea {
+  width: 100%; font: inherit; color: var(--fg); background: var(--bg); border: 1px solid var(--line); border-radius: 6px; padding: 9px 11px;
 }
-textarea { min-height: 96px; resize: vertical; }
-input:focus-visible, select:focus-visible, textarea:focus-visible, button:focus-visible, a:focus-visible {
-  outline: 2px solid var(--accent); outline-offset: 2px;
-}
+textarea { min-height: 88px; resize: vertical; }
+:focus-visible { outline: 2px solid var(--accent); outline-offset: 2px; }
 .grid2 { display: grid; grid-template-columns: repeat(2, minmax(0, 1fr)); gap: 14px; }
-.grid4 { display: grid; grid-template-columns: repeat(4, minmax(0, 1fr)); gap: 14px; }
-.chips { display: flex; flex-wrap: wrap; gap: 8px; }
-.chip { position: relative; }
-.chip input { position: absolute; opacity: 0; inset: 0; cursor: pointer; }
-.chip span { display: inline-block; padding: 6px 12px; border: 1px solid var(--line); border-radius: 999px; font-size: 14px; background: var(--bg); }
-.chip input:checked + span { background: var(--accent-soft); border-color: var(--accent); color: var(--accent); font-weight: 500; }
-.chip input:focus-visible + span { outline: 2px solid var(--accent); outline-offset: 2px; }
-.rows { display: grid; gap: 12px; }
-.row { border: 1px dashed var(--line); border-radius: 8px; padding: 14px; display: grid; gap: 12px; }
-.row-head { display: flex; justify-content: space-between; align-items: center; gap: 8px; }
-.row-head .tag { font-family: var(--font-mono); font-size: 12px; color: var(--muted); }
-button { font: inherit; cursor: pointer; border-radius: 6px; }
-.btn { background: var(--accent); color: var(--panel); border: 1px solid var(--accent); padding: 9px 16px; font-weight: 500; }
+.grid3 { display: grid; grid-template-columns: repeat(3, minmax(0, 1fr)); gap: 14px; }
+.seg { display: inline-flex; flex-wrap: wrap; gap: 6px; }
+.seg label { position: relative; font-weight: 400; }
+.seg input { position: absolute; opacity: 0; inset: 0; cursor: pointer; margin: 0; }
+.seg span { display: inline-block; padding: 5px 11px; border: 1px solid var(--line); border-radius: 999px; font-size: 13px; background: var(--bg); }
+.seg input:checked + span { background: var(--accent-soft); border-color: var(--accent); color: var(--accent); font-weight: 500; }
+.seg input[value="Wrong"]:checked + span { background: var(--warn-soft); border-color: var(--bad); color: var(--bad); }
+.seg input:focus-visible + span { outline: 2px solid var(--accent); outline-offset: 2px; }
+.fact { display: grid; grid-template-columns: minmax(0, 1fr) auto; gap: 8px 16px; align-items: start; padding: 12px 0; border-top: 1px solid var(--line); }
+.fact:first-of-type { border-top: none; }
+.fact .claim { margin: 0; }
+.fact .src { font-family: var(--font-mono); font-size: 11px; color: var(--muted); letter-spacing: .04em; }
+.fact .fix { grid-column: 1 / -1; }
+.pi { display: grid; grid-template-columns: minmax(0, 1.3fr) minmax(0, 1fr) minmax(0, 1.2fr); gap: 10px; align-items: center; padding: 10px 0; border-top: 1px solid var(--line); }
+.pi .who { font-weight: 500; font-size: 14px; }
+.pi .who small { display: block; font-weight: 400; color: var(--muted); font-size: 12.5px; }
+.pi-head { font-family: var(--font-mono); font-size: 11px; letter-spacing: .06em; text-transform: uppercase; color: var(--muted); border-top: none; padding-bottom: 0; }
+.btn { font: inherit; cursor: pointer; border-radius: 6px; background: var(--accent); color: var(--panel); border: 1px solid var(--accent); padding: 9px 16px; font-weight: 500; }
 .btn.ghost { background: transparent; color: var(--accent); }
-.btn.small { padding: 5px 10px; font-size: 13px; }
-.link { background: none; border: none; color: var(--muted); font-size: 13px; text-decoration: underline; padding: 2px; }
-.empty { color: var(--muted); font-size: 14px; font-style: italic; }
-.savebar { display: flex; flex-wrap: wrap; gap: 10px; align-items: center; }
 .dot { display: inline-block; width: 8px; height: 8px; border-radius: 50%; background: var(--muted); margin-right: 6px; vertical-align: middle; }
 .dot.ok { background: var(--ok); } .dot.warn { background: var(--warn); }
-.privacy { font-size: 13px; color: var(--muted); border-left: 3px solid var(--line); padding-left: 12px; max-width: 64ch; }
-@media (max-width: 820px) {
+.privacy { font-size: 13px; color: var(--muted); border-left: 3px solid var(--line); padding-left: 12px; max-width: 66ch; margin: 0; }
+.savebar { display: flex; flex-wrap: wrap; gap: 10px; align-items: center; }
+#copy-box { min-height: 200px; }
+@media (max-width: 860px) {
   .wrap { grid-template-columns: minmax(0, 1fr); gap: 20px; }
   nav.index { position: static; grid-template-columns: repeat(2, minmax(0, 1fr)); }
-  .grid4 { grid-template-columns: repeat(2, minmax(0, 1fr)); }
+  .status { grid-column: 1 / -1; }
 }
-@media (max-width: 480px) {
-  .grid2 { grid-template-columns: minmax(0, 1fr); }
+@media (max-width: 620px) {
+  .grid2, .grid3 { grid-template-columns: minmax(0, 1fr); }
+  .fact { grid-template-columns: minmax(0, 1fr); }
+  .pi { grid-template-columns: minmax(0, 1fr); gap: 6px; }
+  .pi-head { display: none; }
   section { padding: 18px; }
   h1 { font-size: 25px; }
 }
-@media (prefers-reduced-motion: reduce) { html { scroll-behavior: auto; } }
-html { scroll-behavior: smooth; }
 </style>
 
 <header class="top">
-  <div class="eyebrow">PhD applications · Intake · Engineering / CS</div>
+  <div class="eyebrow">PhD applications · Intake · Version 2</div>
   <h1>Questions before the research starts</h1>
-  <p class="lede">Answer the questions in each section. Short notes are OK. Leave a field empty if you do not know. The page saves your answers, and Claude reads the answers to start the program research.</p>
+  <p class="lede">I read your website (scottcjx.com) and your plan doc "PhD Lab Shortlist". Section 1 shows the facts that I found. Tell me if each fact is correct. The other sections ask only the questions that your sources do not answer. Short notes are OK.</p>
 </header>
+
+<div class="alert" role="note">
+  <span class="days" id="days-left">MIT-WHOI</span>
+  <p><strong>The MIT-WHOI Joint Program closes on December 1, 2026.</strong> Your plan doc says that it is your first priority. Please answer section 2 first.</p>
+</div>
 
 <div class="wrap">
   <nav class="index" aria-label="Sections">
-    <a href="#s-topics">1. Topics <span class="count" data-count="topics"></span></a>
-    <a href="#s-labs">2. Labs and programs <span class="count" data-count="labs"></span></a>
-    <a href="#s-start">3. Start date <span class="count" data-count="start"></span></a>
-    <a href="#s-limits">4. Limits <span class="count" data-count="limits"></span></a>
-    <a href="#s-background">5. Background <span class="count" data-count="background"></span></a>
-    <a href="#s-recs">6. Recommenders <span class="count" data-count="recs"></span></a>
-    <a href="#s-other">7. Other notes <span class="count" data-count="other"></span></a>
+    <a href="#s-facts">1. Check facts <span class="count" data-sec="facts"></span></a>
+    <a href="#s-timing">2. Timing <span class="count" data-sec="timing"></span></a>
+    <a href="#s-focus">3. Research focus <span class="count" data-sec="focus"></span></a>
+    <a href="#s-labs">4. Contact status <span class="count" data-sec="labs"></span></a>
+    <a href="#s-regions">5. Regions <span class="count" data-sec="regions"></span></a>
+    <a href="#s-limits">6. Limits <span class="count" data-sec="limits"></span></a>
+    <a href="#s-background">7. Background <span class="count" data-sec="background"></span></a>
+    <a href="#s-recs">8. Recommenders <span class="count" data-sec="recs"></span></a>
+    <a href="#s-other">9. Other notes <span class="count" data-sec="other"></span></a>
     <div class="status">
       <div id="save-state"><span class="dot"></span>Loading saved answers…</div>
       <button type="button" class="btn" id="save-btn">Save answers</button>
@@ -123,76 +129,142 @@ html { scroll-behavior: smooth; }
   </nav>
 
   <form id="intake" autocomplete="off">
-    <section id="s-topics">
+
+    <section id="s-facts" data-sec="facts">
       <header>
-        <h2>1. Research topics</h2>
-        <p class="hint">Tell Claude what you want to research. Claude uses these words to find labs and supervisors.</p>
+        <h2>1. Check the facts that I found</h2>
+        <p class="hint">Select "Correct" or "Wrong" for each fact. If a fact is wrong, write the correct fact in the box.</p>
+      </header>
+      <div id="facts"></div>
+    </section>
+
+    <section id="s-timing" data-sec="timing">
+      <header>
+        <h2>2. Timing</h2>
+        <p class="hint">Your plan doc says that Fall 2027 or Fall 2028 is not decided yet. This decision changes all the deadlines.</p>
       </header>
       <div class="field">
-        <span class="label">Sub-fields (from your earlier answer)</span>
-        <div class="chips" id="subfields">
-          <label class="chip"><input type="checkbox" value="Robotics / Control"><span>Robotics / Control</span></label>
-          <label class="chip"><input type="checkbox" value="Hardware / Electronics"><span>Hardware / Electronics</span></label>
-          <label class="chip"><input type="checkbox" value="Systems / Software"><span>Systems / Software</span></label>
-          <label class="chip"><input type="checkbox" value="AI / Machine learning"><span>AI / Machine learning</span></label>
+        <span class="label" id="l-entry">Which start date do you want?</span>
+        <div class="seg" role="radiogroup" aria-labelledby="l-entry" data-name="entry">
+          <label><input type="radio" name="entry" value="Fall 2027"><span>Fall 2027</span></label>
+          <label><input type="radio" name="entry" value="Fall 2028 (gap year)"><span>Fall 2028 (gap year)</span></label>
+          <label><input type="radio" name="entry" value="Both: apply to some now, the rest next year"><span>Both: some now, the rest next year</span></label>
+          <label><input type="radio" name="entry" value="Not decided"><span>Not decided</span></label>
         </div>
       </div>
+      <div class="field">
+        <label for="mitwhoi-status">What is the status of your MIT-WHOI application?</label>
+        <select id="mitwhoi-status" data-label="MIT-WHOI application status">
+          <option value="">Select…</option>
+          <option>Not started</option>
+          <option>Account made, forms not complete</option>
+          <option>Statement draft started</option>
+          <option>Almost complete</option>
+          <option>Submitted</option>
+          <option>I will not apply this year</option>
+        </select>
+      </div>
+      <div class="field">
+        <label for="mitwhoi-missing">If you apply to MIT-WHOI now, which parts are not ready? <span class="opt">(optional)</span></label>
+        <input type="text" id="mitwhoi-missing" data-label="MIT-WHOI parts not ready" placeholder="Example: statement of objectives, 3rd letter, transcript">
+      </div>
+      <div class="field">
+        <label for="gap-plan">If you take a gap year, what is the plan? <span class="opt">(your plan doc mentions a spin-off and publications)</span></label>
+        <textarea id="gap-plan" data-label="Gap year plan"></textarea>
+      </div>
+    </section>
+
+    <section id="s-focus" data-sec="focus">
+      <header>
+        <h2>3. Research focus</h2>
+        <p class="hint">Your plan doc has 4 research tracks. Give each track a rank. 1 is the most important.</p>
+      </header>
       <div class="field">
         <label for="topics">Topics that interest you <span class="opt">(one per line)</span></label>
-        <textarea id="topics" placeholder="Example: embedded control for legged robots&#10;Example: FPGA acceleration for SLAM"></textarea>
+        <textarea id="topics" data-label="Topics"></textarea>
+      </div>
+      <div class="grid2" id="ranks"></div>
+      <div class="field">
+        <label for="story">Your plan doc gives this research story: "comms and sensing through a vehicle's own thrusters, applied to autonomous vehicles, with neurotech as a later extension." Is this story still correct?</label>
+        <select id="story" data-label="Research story still correct">
+          <option value="">Select…</option>
+          <option>Yes, correct</option>
+          <option>Partly. I write the changes below</option>
+          <option>No. I write a new story below</option>
+        </select>
       </div>
       <div class="field">
-        <label for="avoid">Topics you do not want <span class="opt">(optional)</span></label>
-        <input type="text" id="avoid" placeholder="Example: pure theory with no hardware">
-      </div>
-    </section>
-
-    <section id="s-labs">
-      <header>
-        <h2>2. Labs, professors, and programs</h2>
-        <p class="hint">Add each lab, professor, or program that you already know about. Claude checks each one and finds more like them.</p>
-      </header>
-      <div class="rows" id="labs"></div>
-      <div><button type="button" class="btn ghost small" id="add-lab">Add a lab or program</button></div>
-    </section>
-
-    <section id="s-start">
-      <header>
-        <h2>3. Start date</h2>
-        <p class="hint">The start date sets the deadlines. Many fall 2027 deadlines in the USA are in December 2026.</p>
-      </header>
-      <div class="grid2">
-        <div class="field">
-          <label for="start">When do you want to start?</label>
-          <select id="start">
-            <option value="">Select…</option>
-            <option>Fall 2027</option>
-            <option>Spring 2028</option>
-            <option>Fall 2028</option>
-            <option>Any time</option>
-            <option>Other</option>
-          </select>
-        </div>
-        <div class="field">
-          <label for="start-other">If other, which date? <span class="opt">(optional)</span></label>
-          <input type="text" id="start-other" placeholder="Example: January 2028">
-        </div>
+        <label for="story-change">Changes to the research story <span class="opt">(optional)</span></label>
+        <textarea id="story-change" data-label="Research story changes"></textarea>
       </div>
       <div class="field">
-        <label for="applied-before">Did you apply to PhD programs before? <span class="opt">(optional)</span></label>
-        <input type="text" id="applied-before" placeholder="Example: No / Yes, 3 programs in 2025">
+        <label for="no-topics">Topics that you do not want</label>
+        <input type="text" id="no-topics" data-label="Topics not wanted">
       </div>
     </section>
 
-    <section id="s-limits">
+    <section id="s-labs" data-sec="labs">
       <header>
-        <h2>4. Limits</h2>
+        <h2>4. Contact status for each lab</h2>
+        <p class="hint">These labs are from your plan doc. For each lab, select your contact status. Add a note if you have one. Leave a row empty if you do not know.</p>
+      </header>
+      <div>
+        <div class="pi pi-head"><span>Lab or person</span><span>Contact status</span><span>Note</span></div>
+        <div id="pis"></div>
+      </div>
+      <div class="field">
+        <label for="labs-extra">Other labs or professors to add <span class="opt">(one per line, with the university)</span></label>
+        <textarea id="labs-extra" data-label="Other labs to add"></textarea>
+      </div>
+    </section>
+
+    <section id="s-regions" data-sec="regions">
+      <header>
+        <h2>5. Regions</h2>
+        <p class="hint">In chat, you selected USA / Canada, UK / Europe, and Asia / Australia. Your plan doc says that Singapore PhDs are excluded, and it lists only USA and UK schools.</p>
+      </header>
+      <div class="field">
+        <label for="asia">Do you want programs in Asia or Australia, other than Singapore?</label>
+        <select id="asia" data-label="Asia / Australia programs">
+          <option value="">Select…</option>
+          <option>Yes. Find programs in Asia and Australia</option>
+          <option>Only some countries. I write them below</option>
+          <option>No. Only USA, Canada, UK, and Europe</option>
+        </select>
+      </div>
+      <div class="field">
+        <label for="europe">Do you want programs in Europe outside the UK? <span class="opt">(example: ETH Zurich, EPFL, TU Delft)</span></label>
+        <select id="europe" data-label="Europe outside UK">
+          <option value="">Select…</option>
+          <option>Yes</option>
+          <option>No</option>
+          <option>Not sure. Show me some options</option>
+        </select>
+      </div>
+      <div class="field">
+        <label for="canada">Do you want programs in Canada? <span class="opt">(you did an exchange at Queen's University)</span></label>
+        <select id="canada" data-label="Canada programs">
+          <option value="">Select…</option>
+          <option>Yes</option>
+          <option>No</option>
+          <option>Not sure</option>
+        </select>
+      </div>
+      <div class="field">
+        <label for="places-note">Countries or cities that you must have, or must not have <span class="opt">(optional)</span></label>
+        <input type="text" id="places-note" data-label="Place notes">
+      </div>
+    </section>
+
+    <section id="s-limits" data-sec="limits">
+      <header>
+        <h2>6. Limits</h2>
         <p class="hint">These answers remove programs that do not fit you.</p>
       </header>
       <div class="grid2">
         <div class="field">
           <label for="funding">Do you need full funding?</label>
-          <select id="funding">
+          <select id="funding" data-label="Funding">
             <option value="">Select…</option>
             <option>Yes, full funding only</option>
             <option>Funding preferred, not required</option>
@@ -200,254 +272,337 @@ html { scroll-behavior: smooth; }
           </select>
         </div>
         <div class="field">
+          <label for="app-count">How many programs do you want to apply to?</label>
+          <input type="text" id="app-count" data-label="Number of programs" placeholder="Example: 6 to 10">
+        </div>
+        <div class="field">
           <label for="fee-budget">Budget for application fees <span class="opt">(optional)</span></label>
-          <input type="text" id="fee-budget" placeholder="Example: USD 1000 in total">
+          <input type="text" id="fee-budget" data-label="Fee budget" placeholder="Example: USD 1000 in total">
+        </div>
+        <div class="field">
+          <label for="visa">Visa or citizenship limits <span class="opt">(optional)</span></label>
+          <input type="text" id="visa" data-label="Visa or citizenship" placeholder="Example: Singapore citizen, needs F-1 for USA">
         </div>
       </div>
       <div class="field">
-        <label for="places">Countries or cities that you must have, or must not have <span class="opt">(optional)</span></label>
-        <input type="text" id="places" placeholder="Example: Only USA, UK, Switzerland, Singapore. No very cold cities.">
+        <label for="company">Your plan doc mentions "company plans" and a spin-off. What must the PhD allow for these plans? <span class="opt">(optional)</span></label>
+        <textarea id="company" data-label="Company plans and PhD limits" placeholder="Example: no service bond; I must be able to work on the company part time"></textarea>
       </div>
       <div class="field">
-        <label for="visa">Visa limits <span class="opt">(optional, give only what you want to share)</span></label>
-        <input type="text" id="visa" placeholder="Example: I need a student visa for the USA and UK">
-      </div>
-      <div class="field">
-        <label for="app-count">How many programs do you want to apply to?</label>
-        <input type="text" id="app-count" placeholder="Example: 8 to 12">
+        <label for="defence">Some US acoustics labs (example: UW APL) have defence work that needs US citizenship. Do you want me to keep these labs?</label>
+        <select id="defence" data-label="Keep defence-funded labs">
+          <option value="">Select…</option>
+          <option>Yes, keep them. I check each lab</option>
+          <option>No, remove them</option>
+        </select>
       </div>
     </section>
 
-    <section id="s-background">
+    <section id="s-background" data-sec="background">
       <header>
-        <h2>5. Your background</h2>
-        <p class="hint">Claude uses this to find programs at the correct level and to plan your documents.</p>
+        <h2>7. Background</h2>
+        <p class="hint">Your website gives most of your background. These items are missing.</p>
       </header>
       <div class="grid2">
         <div class="field">
-          <label for="degree">Highest degree now</label>
-          <select id="degree">
+          <label for="gpa">Your current GPA <span class="opt">(your website says "Projected Second Upper")</span></label>
+          <input type="text" id="gpa" data-label="GPA" placeholder="Example: 4.2 / 5.0">
+        </div>
+        <div class="field">
+          <label for="english">English test <span class="opt">(many schools do not ask for one from Singapore)</span></label>
+          <select id="english" data-label="English test">
             <option value="">Select…</option>
-            <option>Bachelor (in progress)</option>
-            <option>Bachelor (completed)</option>
-            <option>Master (in progress)</option>
-            <option>Master (completed)</option>
-            <option>Other</option>
+            <option>No test. I ask for a waiver</option>
+            <option>TOEFL done</option>
+            <option>IELTS done</option>
+            <option>Test booked</option>
+            <option>Not sure if I need one</option>
           </select>
         </div>
         <div class="field">
-          <label for="degree-field">Degree subject</label>
-          <input type="text" id="degree-field" placeholder="Example: Electrical and Electronic Engineering">
+          <label for="gre">GRE</label>
+          <select id="gre" data-label="GRE">
+            <option value="">Select…</option>
+            <option>No GRE</option>
+            <option>GRE done</option>
+            <option>GRE booked</option>
+            <option>Not sure if I need one</option>
+          </select>
         </div>
         <div class="field">
-          <label for="school">University <span class="opt">(optional)</span></label>
-          <input type="text" id="school">
-        </div>
-        <div class="field">
-          <label for="gpa">Grade or GPA <span class="opt">(optional)</span></label>
-          <input type="text" id="gpa" placeholder="Example: 3.7/4.0 or First Class Honours">
+          <label for="scores">Test scores, if you have them <span class="opt">(optional)</span></label>
+          <input type="text" id="scores" data-label="Test scores">
         </div>
       </div>
       <div class="field">
-        <span class="label">Test scores <span class="opt">(write "none", "planned", or the score)</span></span>
-        <div class="grid4">
-          <div class="field"><label for="t-gre">GRE</label><input type="text" id="t-gre"></div>
-          <div class="field"><label for="t-toefl">TOEFL</label><input type="text" id="t-toefl"></div>
-          <div class="field"><label for="t-ielts">IELTS</label><input type="text" id="t-ielts"></div>
-          <div class="field"><label for="t-other">Other</label><input type="text" id="t-other"></div>
-        </div>
+        <label for="pubs-more">Other publications, posters, or papers under review <span class="opt">(your website lists 1 NeurIPS 2025 workshop paper)</span></label>
+        <textarea id="pubs-more" data-label="Other publications"></textarea>
       </div>
       <div class="field">
-        <label for="pubs">Publications <span class="opt">(titles, venues, or "none")</span></label>
-        <textarea id="pubs"></textarea>
-      </div>
-      <div class="field">
-        <label for="research">Research, project, or work experience</label>
-        <textarea id="research" placeholder="Example: Final year project on motor control with STM32. 1 year as embedded engineer."></textarea>
+        <label for="awards">Awards or scholarships <span class="opt">(your website lists none)</span></label>
+        <textarea id="awards" data-label="Awards and scholarships"></textarea>
       </div>
     </section>
 
-    <section id="s-recs">
+    <section id="s-recs" data-sec="recs">
       <header>
-        <h2>6. Recommenders</h2>
-        <p class="hint">Most programs need 3 letters. Give the role of each person. You do not need to give names.</p>
+        <h2>8. Recommenders</h2>
+        <p class="hint">Most programs need 3 letters. Your plan doc names 2 people. Select the status for each person.</p>
       </header>
-      <div class="rows" id="recs"></div>
-      <div><button type="button" class="btn ghost small" id="add-rec">Add a recommender</button></div>
+      <div id="recs"></div>
+      <div class="grid2">
+        <div class="field">
+          <label for="rec3">Third recommender: role or name <span class="opt">(example: Axoft supervisor)</span></label>
+          <input type="text" id="rec3" data-label="Third recommender">
+        </div>
+        <div class="field">
+          <label for="rec3-status">Third recommender status</label>
+          <select id="rec3-status" data-label="Third recommender status">
+            <option value="">Select…</option>
+            <option>Not asked</option>
+            <option>Asked, no answer</option>
+            <option>Agreed</option>
+            <option>Letter submitted</option>
+            <option>I do not have a third person yet</option>
+          </select>
+        </div>
+      </div>
     </section>
 
-    <section id="s-other">
+    <section id="s-other" data-sec="other">
       <header>
-        <h2>7. Other notes</h2>
-        <p class="hint">Write anything else that Claude must know. For example: dates you are busy, or what you want Claude to do first.</p>
+        <h2>9. Other notes</h2>
+        <p class="hint">Write anything else that I must know. For example: dates when you are busy, or the task that I must do first.</p>
       </header>
+      <div class="field">
+        <label for="first-task">What must I do first after you answer?</label>
+        <select id="first-task" data-label="First task after intake">
+          <option value="">Select…</option>
+          <option>Make the tracker page</option>
+          <option>Help with the MIT-WHOI application</option>
+          <option>Check deadlines and PI recruiting status</option>
+          <option>Write emails to PIs</option>
+        </select>
+      </div>
       <div class="field">
         <label for="other">Notes</label>
-        <textarea id="other"></textarea>
+        <textarea id="other" data-label="Other notes"></textarea>
       </div>
-      <p class="privacy">Privacy: this page is private on your claude.ai account. The answers stay in this page's storage. Nobody else can see them unless you share the page. Claude uses the answers only for this project.</p>
+      <p class="privacy">Privacy: this page is private on your claude.ai account. Only you can read or change the saved answers. Nobody else can see them unless you share the page.</p>
       <div class="savebar">
         <button type="button" class="btn" id="save-btn-2">Save answers</button>
         <span class="hint">After you save, tell Claude in chat: "answers are ready".</span>
       </div>
+      <textarea id="copy-box" hidden aria-label="Answers as text"></textarea>
     </section>
   </form>
 </div>
 
 <script>
 (function () {
-  const SIMPLE = ["topics","avoid","start","start-other","applied-before","funding","fee-budget","places","visa","app-count",
-    "degree","degree-field","school","gpa","t-gre","t-toefl","t-ielts","t-other","pubs","research","other"];
-  const SECTIONS = {
-    topics: ["subfields","topics"],
-    labs: ["labs"],
-    start: ["start"],
-    limits: ["funding","places","visa","app-count"],
-    background: ["degree","degree-field","t-gre","t-toefl","t-ielts","pubs","research"],
-    recs: ["recs"],
-    other: ["other"]
-  };
-  const LAB_FIELDS = [["name","Lab, professor, or program"],["uni","University"],["country","Country"],["why","Why this one? (optional)"]];
-  const REC_FIELDS = [["role","Role (example: thesis supervisor)"],["know","How long and how they know you"],["asked","Did you ask them yet?"]];
-
-  let state = { subfields: [], labs: [], recs: [] };
-  SIMPLE.forEach(k => state[k] = "");
-  let db = null, docRef = null, loaded = false, dirty = false, saving = false, timer = null;
   const $ = id => document.getElementById(id);
 
-  function setStatus(text, kind) {
-    $("save-state").innerHTML = '<span class="dot ' + (kind || "") + '"></span>';
-    $("save-state").appendChild(document.createTextNode(text));
-  }
+  // ---- Content from user sources (scottcjx.com and the plan doc). Not confirmed. ----
+  const FACTS = [
+    ["edu", "Education: NTU, B.Eng. Computer Science with a second major in Entrepreneurship, Aug 2023 to Apr 2027.", "WEBSITE"],
+    ["prior", "Before NTU: Diploma in Engineering with Business, Singapore Polytechnic, 2019 to 2021. Exchange at Queen's University, Jan to Apr 2026.", "WEBSITE"],
+    ["thesis", "Final-year thesis: Integrated Communications, Sensing, and Propulsion (ICSP), thrusters as transmitters. You do it as a part-time intern at the NUS Acoustics Research Lab.", "WEBSITE"],
+    ["axoft", "Axoft (Cambridge, MA), Software and Data Intern, Jun to Dec 2025: hardware-in-the-loop neural data and a live decoding pipeline.", "WEBSITE"],
+    ["other-work", "Other work: GovTech robotics intern (ROS, RMF), 2020 to 2021. National Service, 2021 to 2023. Head of Mecatron. NVF Racing electrical lead.", "WEBSITE"],
+    ["pub", "Publication: NeurIPS 2025 workshop paper on decoding level of consciousness. You are author 5 of 12. Jia Liu is a co-author.", "WEBSITE + PLAN"],
+    ["no-sg", "You do not want a PhD in Singapore.", "PLAN"],
+    ["first", "MIT-WHOI Joint Program is your first priority. Fadel Adib is the strongest lead.", "PLAN"],
+    ["dropped", "Michael Benjamin is dropped. The Jia Liu lab is excluded as a destination, but Jia Liu is a reference.", "PLAN"],
+    ["astar", "You do not want the A*STAR NSS route, because of its service bond and your company plans.", "PLAN"],
+    ["talked", "You already spoke to: the Oxford PNPL PI, a Harvard Bionics postdoc, and a Harvard Biodesign postdoc.", "PLAN"]
+  ];
+  const TRACKS = [
+    ["rank-marine", "Marine acoustics and robotics"],
+    ["rank-neuro", "Neurotech and BCI"],
+    ["rank-integ", "Robotics integration (vehicle autonomy)"],
+    ["rank-prosth", "Prosthetics robotics"]
+  ];
+  const PIS = [
+    ["adib", "Fadel Adib", "MIT Signal Kinetics"],
+    ["triant", "Michael Triantafyllou", "MIT Sea Grant"],
+    ["leonard", "John Leonard", "MIT CSAIL Marine Robotics"],
+    ["schmidt", "Henrik Schmidt", "MIT LAMSS (emeritus?)"],
+    ["whoi", "WHOI faculty", "Yoerger, Camilli, Girdhar, Acomms group"],
+    ["rus", "Daniela Rus", "MIT CSAIL Distributed Robotics"],
+    ["herr", "Hugh Herr", "MIT Media Lab Biomechatronics"],
+    ["hogan", "Neville Hogan", "MIT Newman Lab"],
+    ["khatib", "Oussama Khatib", "Stanford Robotics Lab"],
+    ["nptl", "Neural Prosthetics Translational Lab", "Stanford"],
+    ["cmu", "CMU Robotics Institute", "Faculty not chosen"],
+    ["ori", "Mobile Robotics Group", "Oxford Robotics Institute"],
+    ["onig", "Oxford Neural Interfacing Group", "Oxford"],
+    ["pnpl", "Oxford PNPL", "Plan doc: you spoke to the PI"],
+    ["camsig", "Signal processing and communications", "Cambridge Engineering"],
+    ["imperial", "Neurotechnology and robotics", "Imperial College London"],
+    ["uwapl", "Applied Physics Lab", "University of Washington"],
+    ["scripps", "William Hodgkiss", "Scripps Marine Physical Lab, UCSD"]
+  ];
+  const PI_STATUS = ["Not contacted", "Emailed, no answer", "Talked or met", "Positive: may take me", "Not recruiting", "Drop this lab"];
+  const RECS = [["chitre", "Mandar Chitre (NUS ARL)"], ["liu", "Jia Liu (Harvard)"]];
+  const REC_STATUS = ["Not asked", "Asked, no answer", "Agreed", "Letter submitted", "Do not use"];
 
-  function renderRows(kind) {
-    const host = $(kind), fields = kind === "labs" ? LAB_FIELDS : REC_FIELDS, list = state[kind];
-    host.textContent = "";
-    if (!list.length) {
-      const p = document.createElement("p"); p.className = "empty";
-      p.textContent = kind === "labs" ? "No labs added yet. Select \"Add a lab or program\"." : "No recommenders added yet. Select \"Add a recommender\".";
-      host.appendChild(p); return;
-    }
-    list.forEach((item, i) => {
-      const row = document.createElement("div"); row.className = "row";
-      const head = document.createElement("div"); head.className = "row-head";
-      const tag = document.createElement("span"); tag.className = "tag";
-      tag.textContent = (kind === "labs" ? "Entry " : "Recommender ") + (i + 1);
-      const rm = document.createElement("button"); rm.type = "button"; rm.className = "link"; rm.textContent = "Remove";
-      rm.addEventListener("click", () => { state[kind].splice(i, 1); renderRows(kind); changed(); });
-      head.append(tag, rm); row.appendChild(head);
-      const g = document.createElement("div"); g.className = "grid2";
-      fields.forEach(([key, lab]) => {
-        const f = document.createElement("div"); f.className = "field";
-        const id = kind + "-" + i + "-" + key;
-        const l = document.createElement("label"); l.htmlFor = id; l.textContent = lab;
-        const inp = document.createElement("input"); inp.type = "text"; inp.id = id; inp.value = item[key] || "";
-        inp.addEventListener("input", () => { state[kind][i][key] = inp.value; changed(); });
-        f.append(l, inp); g.appendChild(f);
-      });
-      row.appendChild(g); host.appendChild(row);
+  function radioGroup(name, values, labelText) {
+    const g = document.createElement("div"); g.className = "seg"; g.setAttribute("role", "radiogroup"); g.dataset.name = name;
+    if (labelText) g.setAttribute("aria-label", labelText);
+    values.forEach(v => {
+      const l = document.createElement("label"), i = document.createElement("input"), s = document.createElement("span");
+      i.type = "radio"; i.name = name; i.value = v; s.textContent = v; l.append(i, s); g.appendChild(l);
     });
+    return g;
+  }
+  function select(id, options, label) {
+    const s = document.createElement("select"); s.id = id; s.dataset.label = label;
+    ["Select…"].concat(options).forEach((o, i) => { const op = document.createElement("option"); op.value = i ? o : ""; op.textContent = o; s.appendChild(op); });
+    return s;
+  }
+  function text(id, label, ph) {
+    const t = document.createElement("input"); t.type = "text"; t.id = id; t.dataset.label = label; if (ph) t.placeholder = ph; return t;
   }
 
-  function fillForm() {
-    SIMPLE.forEach(k => { const el = $(k); if (el) el.value = state[k] || ""; });
-    document.querySelectorAll("#subfields input").forEach(cb => cb.checked = (state.subfields || []).includes(cb.value));
-    renderRows("labs"); renderRows("recs"); updateCounts();
-  }
+  // Build facts
+  FACTS.forEach(([k, claim, src]) => {
+    const row = document.createElement("div"); row.className = "fact";
+    const left = document.createElement("div");
+    const p = document.createElement("p"); p.className = "claim"; p.textContent = claim;
+    const s = document.createElement("div"); s.className = "src"; s.textContent = "SOURCE: " + src;
+    left.append(p, s);
+    const g = radioGroup("fact-" + k, ["Correct", "Wrong"], "Is this fact correct?");
+    const fix = text("fix-" + k, "Correction for: " + claim, "If wrong, write the correct fact");
+    fix.classList.add("fix");
+    row.append(left, g, fix); $("facts").appendChild(row);
+  });
+  // Build ranks
+  TRACKS.forEach(([id, name]) => {
+    const f = document.createElement("div"); f.className = "field";
+    const l = document.createElement("label"); l.htmlFor = id; l.textContent = name;
+    f.append(l, select(id, ["1", "2", "3", "4", "Remove this track"], "Rank: " + name)); $("ranks").appendChild(f);
+  });
+  // Build PI rows
+  PIS.forEach(([k, who, where]) => {
+    const row = document.createElement("div"); row.className = "pi";
+    const w = document.createElement("div"); w.className = "who"; w.textContent = who;
+    const sm = document.createElement("small"); sm.textContent = where; w.appendChild(sm);
+    const sel = select("pi-" + k, PI_STATUS, "Contact status: " + who + " (" + where + ")");
+    sel.setAttribute("aria-label", "Contact status for " + who);
+    const note = text("pinote-" + k, "Note: " + who, "Note (optional)");
+    note.setAttribute("aria-label", "Note for " + who);
+    row.append(w, sel, note); $("pis").appendChild(row);
+  });
+  // Build recommenders
+  RECS.forEach(([k, who]) => {
+    const row = document.createElement("div"); row.className = "pi";
+    const w = document.createElement("div"); w.className = "who"; w.textContent = who;
+    const sel = select("rec-" + k, REC_STATUS, "Recommender status: " + who); sel.setAttribute("aria-label", "Status for " + who);
+    const note = text("recnote-" + k, "Recommender note: " + who, "Note (optional)"); note.setAttribute("aria-label", "Note for " + who);
+    row.append(w, sel, note); $("recs").appendChild(row);
+  });
+  // Radio groups need labels for text export
+  document.querySelector('[data-name="entry"]').dataset.label = "Start date";
+  FACTS.forEach(([k, claim]) => document.querySelector('[data-name="fact-' + k + '"]').dataset.label = "Fact check: " + claim);
 
-  function filled(key) {
-    const v = state[key];
-    if (Array.isArray(v)) return v.length > 0;
-    return typeof v === "string" && v.trim() !== "";
+  // Days left to MIT-WHOI (Dec 1, 2026)
+  (function () {
+    const now = new Date(), due = new Date(2026, 11, 1);
+    const d = Math.ceil((due - new Date(now.getFullYear(), now.getMonth(), now.getDate())) / 86400000);
+    $("days-left").textContent = d > 1 ? d + " days left" : d === 1 ? "1 day left" : d === 0 ? "Due today" : "Closed";
+  })();
+
+  // ---- State ----
+  const form = $("intake");
+  const fields = () => [...form.querySelectorAll("input[type=text], select, textarea:not(#copy-box)")];
+  const groups = () => [...form.querySelectorAll(".seg[data-name]")];
+  let state = {};
+  function readForm() {
+    const s = {};
+    fields().forEach(el => { if (el.value.trim()) s[el.id] = el.value; });
+    groups().forEach(g => { const c = g.querySelector("input:checked"); if (c) s[g.dataset.name] = c.value; });
+    return s;
+  }
+  function fillForm(s) {
+    fields().forEach(el => { el.value = s[el.id] || ""; });
+    groups().forEach(g => g.querySelectorAll("input").forEach(i => { i.checked = s[g.dataset.name] === i.value; }));
+    updateCounts();
   }
   function updateCounts() {
-    Object.entries(SECTIONS).forEach(([sec, keys]) => {
-      const n = keys.filter(filled).length, el = document.querySelector('[data-count="' + sec + '"]');
-      el.textContent = n + "/" + keys.length; el.classList.toggle("done", n === keys.length);
+    document.querySelectorAll("section[data-sec]").forEach(sec => {
+      const f = [...sec.querySelectorAll("input[type=text]:not(.fix), select, textarea:not(#copy-box)")].filter(e => !e.id.startsWith("pinote-") && !e.id.startsWith("recnote-"));
+      const g = [...sec.querySelectorAll(".seg[data-name]")];
+      const total = f.length + g.length;
+      const done = f.filter(e => e.value.trim()).length + g.filter(x => x.querySelector("input:checked")).length;
+      const el = document.querySelector('.count[data-sec="' + sec.dataset.sec + '"]');
+      el.textContent = done + "/" + total; el.classList.toggle("done", total > 0 && done === total);
     });
   }
 
-  function changed() {
-    dirty = true; updateCounts();
-    if (db) { setStatus("Changes not saved yet", "warn"); clearTimeout(timer); timer = setTimeout(save, 2000); }
+  let db = null, docRef = null, loaded = false, dirty = false, saving = false, timer = null;
+  function setStatus(msg, kind) {
+    const el = $("save-state"); el.textContent = "";
+    const d = document.createElement("span"); d.className = "dot " + (kind || ""); el.append(d, document.createTextNode(msg));
   }
-
+  function changed() {
+    state = readForm(); dirty = true; updateCounts();
+    if (docRef) { setStatus("Changes not saved yet", "warn"); clearTimeout(timer); timer = setTimeout(save, 2000); }
+  }
   async function save() {
     clearTimeout(timer);
     if (!docRef) { setStatus("Saving is not available here. Use \"Copy answers as text\" and paste in chat.", "warn"); return; }
     if (saving) { timer = setTimeout(save, 1000); return; }
     saving = true; dirty = false;
-    const body = JSON.parse(JSON.stringify(state)); body.updatedAt = new Date().toISOString();
+    const body = { version: 2, answers: readForm(), updatedAt: new Date().toISOString() };
     try {
       await docRef.set(body);
       const t = new Date().toLocaleTimeString([], { hour: "2-digit", minute: "2-digit" });
       setStatus(dirty ? "Changes not saved yet" : "Saved at " + t, dirty ? "warn" : "ok");
     } catch (e) {
       dirty = true;
-      if (e && e.code === "invalid_argument") setStatus("You cannot save on this page. Ask the owner for edit access.", "warn");
-      else setStatus("Save failed. Select \"Save answers\" again.", "warn");
+      setStatus(e && e.code === "invalid_argument" ? "Only the page owner can save answers." : "Save failed. Select \"Save answers\" again.", "warn");
     } finally { saving = false; }
   }
-
   function asText() {
-    const L = [];
-    const v = k => (state[k] || "").trim() || "(empty)";
-    L.push("PHD INTAKE ANSWERS", "");
-    L.push("1. TOPICS", "Sub-fields: " + ((state.subfields || []).join(", ") || "(empty)"), "Topics:\n" + v("topics"), "Do not want: " + v("avoid"), "");
-    L.push("2. LABS AND PROGRAMS");
-    if (!state.labs.length) L.push("(empty)");
-    state.labs.forEach((r, i) => L.push((i + 1) + ". " + [r.name, r.uni, r.country].filter(Boolean).join(" | ") + (r.why ? " — " + r.why : "")));
-    L.push("", "3. START", "Start: " + v("start") + (state["start-other"] ? " (" + state["start-other"] + ")" : ""), "Applied before: " + v("applied-before"), "");
-    L.push("4. LIMITS", "Funding: " + v("funding"), "Fee budget: " + v("fee-budget"), "Places: " + v("places"), "Visa: " + v("visa"), "Number of programs: " + v("app-count"), "");
-    L.push("5. BACKGROUND", "Degree: " + v("degree") + " in " + v("degree-field"), "University: " + v("school"), "Grade: " + v("gpa"),
-      "Tests: GRE " + v("t-gre") + "; TOEFL " + v("t-toefl") + "; IELTS " + v("t-ielts") + "; Other " + v("t-other"),
-      "Publications:\n" + v("pubs"), "Experience:\n" + v("research"), "");
-    L.push("6. RECOMMENDERS");
-    if (!state.recs.length) L.push("(empty)");
-    state.recs.forEach((r, i) => L.push((i + 1) + ". " + [r.role, r.know, r.asked && ("asked: " + r.asked)].filter(Boolean).join(" | ")));
-    L.push("", "7. OTHER", v("other"));
-    return L.join("\n");
+    const s = readForm(), out = ["PHD INTAKE ANSWERS (version 2)", ""];
+    document.querySelectorAll("section[data-sec]").forEach(sec => {
+      out.push(sec.querySelector("h2").textContent.toUpperCase());
+      sec.querySelectorAll("[data-label]").forEach(el => {
+        const key = el.dataset.name || el.id, v = s[key];
+        if (v) out.push("- " + el.dataset.label + ": " + v);
+      });
+      out.push("");
+    });
+    return out.join("\n");
   }
 
-  // Wire inputs
-  SIMPLE.forEach(k => { const el = $(k); el.addEventListener("input", () => { state[k] = el.value; changed(); }); el.addEventListener("change", () => { state[k] = el.value; changed(); }); });
-  document.querySelectorAll("#subfields input").forEach(cb => cb.addEventListener("change", () => {
-    state.subfields = [...document.querySelectorAll("#subfields input:checked")].map(x => x.value); changed();
-  }));
-  $("add-lab").addEventListener("click", () => { state.labs.push({ name: "", uni: "", country: "", why: "" }); renderRows("labs"); changed(); $("labs-" + (state.labs.length - 1) + "-name").focus(); });
-  $("add-rec").addEventListener("click", () => { state.recs.push({ role: "", know: "", asked: "" }); renderRows("recs"); changed(); $("recs-" + (state.recs.length - 1) + "-role").focus(); });
+  form.addEventListener("input", changed);
+  form.addEventListener("change", changed);
   $("save-btn").addEventListener("click", save);
   $("save-btn-2").addEventListener("click", save);
   $("copy-btn").addEventListener("click", () => {
-    const text = asText();
-    navigator.clipboard.writeText(text).then(() => { $("copy-state").textContent = "Copied. Paste the text in chat."; })
+    const t = asText();
+    navigator.clipboard.writeText(t).then(() => { $("copy-state").textContent = "Copied. Paste the text in chat."; })
       .catch(() => {
-        const ta = document.createElement("textarea"); ta.value = text; ta.style.minHeight = "200px";
-        $("copy-state").textContent = "Copy is blocked here. Select the text below and copy it:";
-        $("copy-state").appendChild(ta); ta.select();
+        const box = $("copy-box"); box.value = t; box.hidden = false; box.focus(); box.select();
+        $("copy-state").textContent = "Copy is blocked here. The text is at the end of section 9. Select it and copy it.";
       });
   });
 
-  fillForm();
-
-  // Load saved answers
+  fillForm({});
   const loadTimer = setTimeout(() => { if (!loaded) setStatus("Saved answers cannot be reached yet. You can type now.", "warn"); }, 10000);
   if (window.claude && window.claude.use) {
     window.claude.use("db").then(d => {
       if (!d) { clearTimeout(loadTimer); setStatus("Saving is not available here. Use \"Copy answers as text\" and paste in chat.", "warn"); return; }
       db = d; docRef = db.doc("intake/answers");
       docRef.onSnapshot(snap => {
-        if (snap.metadata.fromCache && !snap.exists) return;
-        if (!loaded && !dirty) {
-          if (snap.exists) { state = Object.assign(state, snap.data()); state = JSON.parse(JSON.stringify(state)); fillForm(); }
-          loaded = true; clearTimeout(loadTimer);
-          setStatus(snap.exists ? "Saved answers loaded" : "No answers saved yet", snap.exists ? "ok" : "");
-        } else if (!loaded) { loaded = true; clearTimeout(loadTimer); }
-      }, () => { clearTimeout(loadTimer); setStatus("Saved answers cannot be loaded. Your typing is kept on this page only.", "warn"); });
+        if (loaded || (snap.metadata.fromCache && !snap.exists)) return;
+        loaded = true; clearTimeout(loadTimer);
+        const data = snap.exists ? snap.data() : null;
+        if (!dirty && data && data.answers) { fillForm(data.answers); setStatus("Saved answers loaded", "ok"); }
+        else setStatus(dirty ? "Changes not saved yet" : "No answers saved yet", dirty ? "warn" : "");
+      }, () => { clearTimeout(loadTimer); setStatus("Saved answers cannot be loaded. Use \"Copy answers as text\".", "warn"); });
     });
-  } else {
-    clearTimeout(loadTimer);
-    setStatus("Saving is not available here. Use \"Copy answers as text\" and paste in chat.", "warn");
-  }
+  } else { clearTimeout(loadTimer); setStatus("Saving is not available here. Use \"Copy answers as text\" and paste in chat.", "warn"); }
 })();
 </script>
