@@ -1,0 +1,175 @@
+{
+ "Fadel Adib": {
+  "Mandar Chitre": {
+   "coauthored": 0,
+   "coauthored_ex": [],
+   "prof_cites_ref": 2,
+   "prof_cites_ref_ex": [
+    "2025: Mobile Underwater Backscatter Networking",
+    "2024: SURF: Eavesdropping on Underwater Communications from the Air"
+   ],
+   "ref_cites_prof": 0,
+   "ref_cites_prof_ex": []
+  },
+  "Dusit Niyato": {
+   "coauthored": 0,
+   "coauthored_ex": [],
+   "prof_cites_ref": 0,
+   "prof_cites_ref_ex": [],
+   "ref_cites_prof": 3,
+   "ref_cites_prof_ex": [
+    "2024: Anti-Jamming Colonel Blotto Game for Underwater Acoustic Backscatter Communication",
+    "2023: Through the Wall Detection and Localization of Autonomous Mobile Device in Indoor Scenario",
+    "2018: Ambient Backscatter Communications: A Contemporary Survey"
+   ]
+  }
+ },
+ "Seth McCammon": {
+  "Mandar Chitre": {
+   "coauthored": 0,
+   "coauthored_ex": [],
+   "prof_cites_ref": 0,
+   "prof_cites_ref_ex": [],
+   "ref_cites_prof": 1,
+   "ref_cites_prof_ex": [
+    "2026: Passive Acoustic-Based Composite Indices for Reef Health Monitoring in Noisy Tropical Waters"
+   ]
+  }
+ },
+ "Yongsung Park": {
+  "Mandar Chitre": {
+   "coauthored": 0,
+   "coauthored_ex": [],
+   "prof_cites_ref": 2,
+   "prof_cites_ref_ex": [
+    "2026: A deep learning approach to broadband modal propagation in various shallow water waveguides",
+    "2024: Predicting ocean pressure field with a physics-informed neural network"
+   ],
+   "ref_cites_prof": 0,
+   "ref_cites_prof_ex": []
+  }
+ },
+ "Jeff Kaeli": {
+  "Mandar Chitre": {
+   "coauthored": 0,
+   "coauthored_ex": [],
+   "prof_cites_ref": 1,
+   "prof_cites_ref_ex": [
+    "2017: Advances in Platforms and Algorithms for High Resolution Mapping in the Marine Environment"
+   ],
+   "ref_cites_prof": 0,
+   "ref_cites_prof_ex": []
+  }
+ },
+ "Yogesh Girdhar": {
+  "Mandar Chitre": {
+   "coauthored": 0,
+   "coauthored_ex": [],
+   "prof_cites_ref": 0,
+   "prof_cites_ref_ex": [],
+   "ref_cites_prof": 1,
+   "ref_cites_prof_ex": [
+    "2018: Informed Sampling and Adaptive Monitoring using Sparse Gaussian Processes"
+   ]
+  }
+ },
+ "Nare Karapetyan": {
+  "Mandar Chitre": {
+   "coauthored": 0,
+   "coauthored_ex": [],
+   "prof_cites_ref": 0,
+   "prof_cites_ref_ex": [],
+   "ref_cites_prof": 1,
+   "ref_cites_prof_ex": [
+    "2015: Robust underwater obstacle detection and collision avoidance"
+   ]
+  }
+ },
+ "Dana Yoerger": {
+  "Mandar Chitre": {
+   "coauthored": 0,
+   "coauthored_ex": [],
+   "prof_cites_ref": 0,
+   "prof_cites_ref_ex": [],
+   "ref_cites_prof": 7,
+   "ref_cites_prof_ex": [
+    "2024: Load-adaptive MAC protocol for frontier detection in Underwater Mobile Sensor Network",
+    "2023: Concept of Operations for Collaborative Human Robot Inspection and Intervention System in Challenging Underwater Environments",
+    "2021: Multi-USV Adaptive Exploration Using Kernel Information and Residual Variance",
+    "2016: Adaptive behaviors in multi-agent source localization using passive sensing"
+   ]
+  }
+ },
+ "Richard Camilli": {
+  "Mandar Chitre": {
+   "coauthored": 0,
+   "coauthored_ex": [],
+   "prof_cites_ref": 0,
+   "prof_cites_ref_ex": [],
+   "ref_cites_prof": 4,
+   "ref_cites_prof_ex": [
+    "2026: Image Compression Using Novel View Synthesis Priors",
+    "2025: Pose Estimation From Camera Images for Underwater Inspection",
+    "2021: Multi-USV Adaptive Exploration Using Kernel Information and Residual Variance",
+    "2016: Adaptive behaviors in multi-agent source localization using passive sensing"
+   ]
+  }
+ },
+ "Lee Freitag": {
+  "Mandar Chitre": {
+   "coauthored": 3,
+   "coauthored_ex": [
+    "2008: Recent advances in underwater acoustic communications & networking",
+    "2008: Recent advances in underwater acoustic communications & networking",
+    "2006: An Architecture for Underwater Networks"
+   ],
+   "prof_cites_ref": 9,
+   "prof_cites_ref_ex": [
+    "2022: Loosely-Coupled Human-Robot Teams for Enhanced Undersea Operations",
+    "2013: Recent Trends in Underwater Acoustic Communications",
+    "2011: From underwater simulation to at-sea testing using the ns-2 network simulator",
+    "2010: The WHOI micromodem-2: A scalable system for acoustic communications and networking"
+   ],
+   "ref_cites_prof": 22,
+   "ref_cites_prof_ex": [
+    "2026: Image Compression Using Novel View Synthesis Priors",
+    "2025: A Low-Cost Surface Vehicle for Studying the Near-Terminus Region at Tidewater Glaciers",
+    "2024: Underwater acoustic communications",
+    "2024: Load-adaptive MAC protocol for frontier detection in Underwater Mobile Sensor Network"
+   ]
+  }
+ },
+ "Jim Partan": {
+  "Mandar Chitre": {
+   "coauthored": 0,
+   "coauthored_ex": [],
+   "prof_cites_ref": 3,
+   "prof_cites_ref_ex": [
+    "2011: Low spreading loss in underwater acoustic networks reduces RTS/CTS effectiveness",
+    "2010: The WHOI micromodem-2: A scalable system for acoustic communications and networking",
+    "None: Spatial Reuse in Underwater Acoustic Networks using RTS/CTS MAC Protocols"
+   ],
+   "ref_cites_prof": 15,
+   "ref_cites_prof_ex": [
+    "2026: Passive Acoustic-Based Composite Indices for Reef Health Monitoring in Noisy Tropical Waters",
+    "2025: A Low-Cost Surface Vehicle for Studying the Near-Terminus Region at Tidewater Glaciers",
+    "2024: Underwater acoustic communications",
+    "2024: Brief communication: A low-cost surface vehicle for studying the near-terminus region at tidewater glaciers"
+   ]
+  }
+ },
+ "Levi Cai": {},
+ "Federico Tessari": {},
+ "Oussama Khatib": {
+  "Dusit Niyato": {
+   "coauthored": 0,
+   "coauthored_ex": [],
+   "prof_cites_ref": 0,
+   "prof_cites_ref_ex": [],
+   "ref_cites_prof": 1,
+   "ref_cites_prof_ex": [
+    "2025: Is FISHER All You Need in the Multi-AUV Underwater Target Tracking Task?"
+   ]
+  }
+ }
+}
