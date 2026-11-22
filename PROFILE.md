@@ -43,3 +43,7 @@ Facts from the user only. Claude does not add guesses here.
 | Incoming prof search: start meaning | Any start from June 2027 (summer or Fall 2027) | 2026-11-22 |
 | Incoming prof search: regions | USA / Canada; UK / Europe | 2026-11-22 |
 | English | User is a native English speaker (check CMU definition) | 2026-11-22 |
+| Dec 1 apps besides MIT-WHOI | Ellison Scholars; Stanford ME and/or EE (choice open) | 2026-11-22 |
+| Faculty emails to draft | Adib, McCammon, Park, Kaeli, Girdhar | 2026-11-22 |
+| Statement of objectives | Not started | 2026-11-22 |
+| Location until deadlines | Singapore | 2026-11-22 |

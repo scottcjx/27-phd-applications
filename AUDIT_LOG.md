@@ -18,3 +18,4 @@ Each entry has: date and time, actor, action, files, reason.
 | 2026-11-22 16:35 | Claude | Asked 4 questions. Made and published deadline page (private). | visuals/deadlines.html, PROFILE.md | User chose deadline web page. |
 | 2026-11-22 16:35 | Claude | Incoming professor search round 2: 4 extended searches (USA/Canada, UK/Europe). Added leads. | sources/incoming-profs-search-1.md | User scope answers. |
 | 2026-11-22 16:40 | Claude | Read MIT-WHOI requirement pages and WHOI faculty pages with 3 web-fetch agents. Wrote requirements and 15-person faculty fit list. | sources/mit-whoi.md | User: start MIT-WHOI plan; find more WHOI faculty. |
+| 2026-11-22 16:43 | Claude | Asked 4 plan questions. Made and published Dec 1 sprint plan page (private, ticks saved owner-only). Set 1 tick: Chitre agreed (user fact). Drafted 2 letter requests (not sent). | visuals/mit-whoi-plan.html, drafts/letter-requests.md, PROFILE.md | User: start with MIT-WHOI plan. |

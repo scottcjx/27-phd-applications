@@ -1,0 +1,317 @@
+<title>Dec 1 Sprint Plan</title>
+<meta name="claude:viewport-fit-sides" content="cover">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=IBM+Plex+Sans:wght@400;500;600&family=IBM+Plex+Mono:wght@400;500&family=Space+Grotesk:wght@500;600&display=swap">
+<style>
+/* Layout: countdown band, then day-by-day checklist (left, wide) with trackers (right); one column on phones. Same tokens as the intake page. */
+:root {
+  --bg: #f4f6f9; --panel: #ffffff; --fg: #18202e; --muted: #5a6577; --line: #d5dbe5;
+  --accent: #2d55b8; --accent-soft: #e3eafa; --ok: #1f7a4d; --ok-soft: #e1f2e9; --warn: #a35a00; --bad: #b3261e; --warn-soft: #fbefdc; --bad-soft: #fbe4e2;
+  --t-whoi: #2d55b8; --t-stan: #8c2f39; --t-ell: #4d6b2f; --t-all: #5a6577;
+  --font-display: "Space Grotesk", "IBM Plex Sans", system-ui, sans-serif;
+  --font-body: "IBM Plex Sans", system-ui, -apple-system, "Segoe UI", sans-serif;
+  --font-mono: "IBM Plex Mono", ui-monospace, "SF Mono", Menlo, monospace;
+}
+@media (prefers-color-scheme: dark) {
+  :root:not([data-theme="light"]) {
+    --bg: #11151d; --panel: #181e29; --fg: #e4e9f2; --muted: #98a3b6; --line: #2c3545;
+    --accent: #7d9df0; --accent-soft: #1f2a44; --ok: #5cc28f; --ok-soft: #173326; --warn: #e5a34a; --bad: #f08a80; --warn-soft: #33281a; --bad-soft: #3a1f1d;
+    --t-whoi: #7d9df0; --t-stan: #e58b95; --t-ell: #9cc46e; --t-all: #98a3b6; color-scheme: dark;
+  }
+}
+:root[data-theme="dark"] {
+  --bg: #11151d; --panel: #181e29; --fg: #e4e9f2; --muted: #98a3b6; --line: #2c3545;
+  --accent: #7d9df0; --accent-soft: #1f2a44; --ok: #5cc28f; --ok-soft: #173326; --warn: #e5a34a; --bad: #f08a80; --warn-soft: #33281a; --bad-soft: #3a1f1d;
+  --t-whoi: #7d9df0; --t-stan: #e58b95; --t-ell: #9cc46e; --t-all: #98a3b6; color-scheme: dark;
+}
+* { box-sizing: border-box; }
+body {
+  background: var(--bg); color: var(--fg); font-family: var(--font-body); font-size: 14.5px; line-height: 1.5;
+  padding-left: max(16px, env(safe-area-inset-left, 0px));
+  padding-right: max(16px, env(safe-area-inset-right, 0px));
+  padding-block: 28px 80px;
+}
+.page { max-width: 1160px; margin: 0 auto; display: grid; gap: 22px; }
+.eyebrow { font-family: var(--font-mono); font-size: 12px; letter-spacing: .08em; text-transform: uppercase; color: var(--muted); }
+h1 { font-family: var(--font-display); font-weight: 600; font-size: 30px; line-height: 1.15; margin: 4px 0 6px; text-wrap: balance; }
+h2 { font-family: var(--font-display); font-weight: 600; font-size: 18px; margin: 0 0 12px; }
+.lede { color: var(--muted); max-width: 72ch; margin: 0; }
+.clocks { display: grid; grid-template-columns: repeat(auto-fit, minmax(210px, 1fr)); gap: 10px; }
+.clock { background: var(--panel); border: 1px solid var(--line); border-left: 4px solid var(--c, var(--line)); border-radius: 8px; padding: 10px 14px; display: grid; gap: 2px; }
+.clock .name { font-size: 13px; color: var(--muted); }
+.clock .left { font-family: var(--font-mono); font-size: 20px; font-weight: 500; font-variant-numeric: tabular-nums; }
+.clock .when { font-size: 12.5px; font-family: var(--font-mono); color: var(--muted); }
+.cols { display: grid; grid-template-columns: minmax(0, 1.7fr) minmax(0, 1fr); gap: 22px; align-items: start; }
+.card { background: var(--panel); border: 1px solid var(--line); border-radius: 10px; padding: 18px 20px; min-width: 0; }
+.progress { display: flex; align-items: center; gap: 12px; margin-bottom: 14px; }
+.bar { flex: 1; height: 8px; background: var(--line); border-radius: 999px; overflow: hidden; }
+.bar i { display: block; height: 100%; background: var(--ok); width: 0; transition: width .3s; }
+.progress span { font-family: var(--font-mono); font-size: 12.5px; color: var(--muted); font-variant-numeric: tabular-nums; }
+.day { border-top: 1px solid var(--line); padding: 12px 0 6px; }
+.day:first-of-type { border-top: none; padding-top: 0; }
+.day-h { display: flex; flex-wrap: wrap; gap: 4px 12px; align-items: baseline; margin-bottom: 6px; }
+.day-h b { font-family: var(--font-mono); font-weight: 500; font-size: 13px; }
+.day-h .tag { font-size: 12px; color: var(--muted); }
+.day.today { background: var(--accent-soft); margin: 0 -20px; padding-left: 20px; padding-right: 20px; border-radius: 6px; }
+.day.today .day-h b::after { content: " · TODAY"; color: var(--accent); }
+.task { display: grid; grid-template-columns: auto minmax(0, 1fr) auto; gap: 10px; align-items: start; padding: 5px 0; }
+.task input { margin-top: 3px; width: 16px; height: 16px; accent-color: var(--ok); }
+.task label { cursor: pointer; }
+.task.done label { color: var(--muted); text-decoration: line-through; }
+.task .who { font-family: var(--font-mono); font-size: 11px; padding: 1px 7px; border-radius: 999px; border: 1px solid var(--line); color: var(--muted); white-space: nowrap; }
+.task .who.claude { color: var(--accent); border-color: var(--accent); }
+.trk { display: inline-block; font-family: var(--font-mono); font-size: 10.5px; letter-spacing: .05em; padding: 0 5px; border-radius: 3px; margin-right: 6px; color: var(--panel); background: var(--t-all); vertical-align: 1px; }
+.trk.whoi { background: var(--t-whoi); } .trk.stan { background: var(--t-stan); } .trk.ell { background: var(--t-ell); }
+.warnline { font-size: 13px; color: var(--warn); margin: 4px 0 0 26px; }
+.side { display: grid; gap: 22px; }
+table { width: 100%; border-collapse: collapse; font-size: 13.5px; }
+th, td { text-align: left; padding: 7px 6px; border-bottom: 1px solid var(--line); vertical-align: top; }
+th { font-family: var(--font-mono); font-size: 10.5px; letter-spacing: .06em; text-transform: uppercase; color: var(--muted); font-weight: 500; }
+td small { display: block; color: var(--muted); font-size: 12px; }
+td.c { text-align: center; }
+td.c input { width: 15px; height: 15px; accent-color: var(--ok); }
+ul.plain { margin: 0; padding-left: 18px; display: grid; gap: 7px; font-size: 13.5px; }
+a { color: var(--accent); }
+:focus-visible { outline: 2px solid var(--accent); outline-offset: 2px; }
+.status { font-size: 12.5px; color: var(--muted); }
+.dot { display: inline-block; width: 7px; height: 7px; border-radius: 50%; background: var(--muted); margin-right: 6px; vertical-align: middle; }
+.dot.ok { background: var(--ok); } .dot.warn { background: var(--warn); }
+@media (max-width: 900px) { .cols { grid-template-columns: minmax(0, 1fr); } }
+@media (max-width: 520px) { h1 { font-size: 25px; } .card { padding: 16px; } .day.today { margin: 0 -16px; padding-left: 16px; padding-right: 16px; } }
+@media (prefers-reduced-motion: reduce) { .bar i { transition: none; } }
+</style>
+
+<div class="page">
+  <header>
+    <div class="eyebrow">PhD applications · Fall 2027 · All times in Singapore time (SGT)</div>
+    <h1>Dec 1 sprint: MIT-WHOI, Stanford, Ellison</h1>
+    <p class="lede">This is your plan from today to the deadlines. Tick each task when it is done. The page saves the ticks, and only you can see them. "Claude" tasks are drafts that I write for you. You read and send each draft.</p>
+  </header>
+
+  <div class="clocks" id="clocks"></div>
+
+  <div class="cols">
+    <section class="card">
+      <h2>Day by day</h2>
+      <div class="progress"><div class="bar"><i id="bar"></i></div><span id="ptext">0 / 0</span></div>
+      <div id="days"></div>
+      <p class="status" id="save-state"><span class="dot"></span>Loading saved ticks…</p>
+    </section>
+
+    <div class="side">
+      <section class="card">
+        <h2>Faculty emails</h2>
+        <table>
+          <thead><tr><th>Person</th><th>Drafted</th><th>Sent</th><th>Reply</th></tr></thead>
+          <tbody id="fac"></tbody>
+        </table>
+        <p class="status">Send each email between 8 PM and 11 PM SGT. That is the morning in Boston. CC the Education Coordinator, as the program asks.</p>
+      </section>
+
+      <section class="card">
+        <h2>Letters</h2>
+        <table>
+          <thead><tr><th>Recommender</th><th>Agreed</th><th>MIT-WHOI</th><th>Stanford</th><th>Ellison</th></tr></thead>
+          <tbody id="recs"></tbody>
+        </table>
+        <p class="status">Tick a program column when you add the person in that portal. The portal sends the letter link to the person.</p>
+      </section>
+
+      <section class="card">
+        <h2>Rules from the official pages</h2>
+        <ul class="plain">
+          <li><b>MIT-WHOI:</b> statement of objectives, 1.5 to 2.5 pages, single-spaced. CV. Unofficial PDF transcripts and a description of each grading scale. 3 letters. No GRE.</li>
+          <li><b>English:</b> MIT-WHOI waives the test if English was your main language in primary and secondary school. Use the waiver form.</li>
+          <li><b>Research areas:</b> list up to 3, in order. Put Applied Ocean Science &amp; Engineering first.</li>
+          <li><b>Advisor:</b> you do not have to name one. But the reviewers look for "a match with potential advisors who have funding in hand".</li>
+          <li><b>Start:</b> admitted students can start in June. The program strongly encourages a June start.</li>
+          <li><b>Stanford EE:</b> exactly 3 letters, no GRE. <b>Stanford ME:</b> 3 letters, at least 1 academic. The ME page does not accept the GRE.</li>
+          <li><b>US holiday:</b> Thanksgiving is Nov 26 to 27. US faculty and Oliver Armitage (Cambridge, MA) may reply slowly on those days.</li>
+        </ul>
+      </section>
+    </div>
+  </div>
+</div>
+
+<script>
+(function () {
+  // Deadlines as UTC instants
+  const DL = [
+    { n: "Ellison Scholars (EIT step)", t: Date.UTC(2026, 11, 1, 17, 0), c: "--t-ell", w: "Dec 2, 1:00 AM SGT (5 PM UK, Dec 1)" },
+    { n: "MIT-WHOI Joint Program", t: Date.UTC(2026, 11, 2, 4, 59), c: "--t-whoi", w: "Dec 2, 12:59 PM SGT (11:59 PM EST, Dec 1)" },
+    { n: "Stanford EE PhD", t: Date.UTC(2026, 11, 2, 7, 59), c: "--t-stan", w: "Dec 2, 3:59 PM SGT (11:59 PM PST, Dec 1)" },
+    { n: "Stanford ME PhD", t: Date.UTC(2026, 11, 1, 0, 0), c: "--t-stan", w: "Dec 1 (time not stated): finish by Dec 1, 8 AM SGT" }
+  ];
+  const clocks = document.getElementById("clocks");
+  const clockEls = DL.map(d => {
+    const el = document.createElement("div"); el.className = "clock"; el.style.setProperty("--c", "var(" + d.c + ")");
+    const n = document.createElement("span"); n.className = "name"; n.textContent = d.n;
+    const l = document.createElement("span"); l.className = "left";
+    const w = document.createElement("span"); w.className = "when"; w.textContent = d.w;
+    el.append(n, l, w); clocks.appendChild(el); return l;
+  });
+  function tick() {
+    const now = Date.now();
+    DL.forEach((d, i) => {
+      const ms = d.t - now;
+      if (ms <= 0) { clockEls[i].textContent = "Closed"; return; }
+      const dd = Math.floor(ms / 86400000), hh = Math.floor(ms % 86400000 / 3600000), mm = Math.floor(ms % 3600000 / 60000);
+      clockEls[i].textContent = dd + "d " + String(hh).padStart(2, "0") + "h " + String(mm).padStart(2, "0") + "m";
+    });
+  }
+  tick(); setInterval(tick, 30000);
+
+  // Tasks: [id, track, who, text, warn?]
+  const DAYS = [
+    ["2026-11-22", "Sun 22 Nov", "Letters and decisions", [
+      ["d0-ask", "all", "Claude", "Draft letter requests to Oliver Armitage and Dusit Niyato. Include the deadlines and the programs."],
+      ["d0-send", "all", "You", "Send the 2 letter requests today. Tell Mandar Chitre the list of programs."],
+      ["d0-stan", "stan", "You", "Decide: Stanford EE, Stanford ME, or both. Each needs its own statement."],
+      ["d0-recs", "whoi", "You", "Add the 3 recommenders in the MIT-WHOI portal, so that they get the link now."]
+    ]],
+    ["2026-11-23", "Mon 23 Nov", "Faculty emails", [
+      ["d1-draft", "whoi", "Claude", "Draft 5 short emails: Adib, McCammon, Park, Kaeli, Girdhar. Each email links your ICSP thesis to their work."],
+      ["d1-send", "whoi", "You", "Read, correct, and send the emails between 8 PM and 11 PM SGT. Attach CV and unofficial transcript."],
+      ["d1-cv", "all", "You", "Update your CV: ICSP thesis, Axoft, NeurIPS workshop paper, Mecatron."],
+      ["d1-stanrecs", "stan", "You", "Add the 3 recommenders in the Stanford portal(s)."]
+    ]],
+    ["2026-11-24", "Tue 24 Nov", "Statement draft", [
+      ["d2-sop", "whoi", "Claude", "Write the first draft of the MIT-WHOI statement of objectives (2 pages), from your facts."],
+      ["d2-facts", "whoi", "You", "Add the missing facts to the draft: thesis results, your own role in each project."],
+      ["d2-trans", "all", "You", "Make unofficial PDF transcripts: NTU, Singapore Polytechnic, Queen's. Not encrypted."],
+      ["d2-grade", "all", "Claude", "Write the grading-scale description for each school, from facts that you give me."]
+    ]],
+    ["2026-11-25", "Wed 25 Nov", "Ellison and English waiver", [
+      ["d3-ell", "ell", "Claude", "Read the Ellison application form and list each question."],
+      ["d3-waiver", "whoi", "You", "Request the English test waiver (MIT-WHOI waivers page)."],
+      ["d3-sop2", "whoi", "Claude", "Statement draft 2, from your comments."]
+    ]],
+    ["2026-11-26", "Thu 26 Nov", "Stanford statement", [
+      ["d4-stansop", "stan", "Claude", "Change the statement for Stanford (EE or ME). Name the Stanford faculty who fit."],
+      ["d4-ellans", "ell", "Claude", "Draft the answers to the Ellison questions."],
+      ["d4-chase", "all", "You", "If Armitage or Niyato has not agreed yet, send a short reminder."]
+    ], "US Thanksgiving: replies from the USA can be slow."],
+    ["2026-11-27", "Fri 27 Nov", "Forms", [
+      ["d5-stanform", "stan", "You", "Complete the Stanford form fields: education, experience, publications."],
+      ["d5-ellform", "ell", "You", "Complete the Ellison form."],
+      ["d5-replies", "whoi", "You", "Read the faculty replies. Tell me who replied. I add the names to the statement."]
+    ]],
+    ["2026-11-28", "Sat 28 Nov", "MIT-WHOI final", [
+      ["d6-sopfinal", "whoi", "You", "Approve the final MIT-WHOI statement. Ask Mandar Chitre for a fast read if possible."],
+      ["d6-form", "whoi", "You", "Complete the MIT-WHOI form. Research areas: Applied Ocean Science & Engineering first."]
+    ]],
+    ["2026-11-29", "Sun 29 Nov", "Check", [
+      ["d7-letters", "all", "You", "Check the letter status in each portal. Remind each recommender who has not submitted."],
+      ["d7-review", "all", "Claude", "Check each application against its list of requirements."]
+    ]],
+    ["2026-11-30", "Mon 30 Nov", "Submit Ellison and Stanford ME", [
+      ["d8-ell", "ell", "You", "Submit the Ellison application. It closes Dec 2, 1:00 AM SGT."],
+      ["d8-stanme", "stan", "You", "Submit Stanford ME (if you apply). The page does not state the time, so submit by Dec 1, 8 AM SGT."]
+    ]],
+    ["2026-12-01", "Tue 1 Dec", "Submit MIT-WHOI and Stanford EE", [
+      ["d9-whoi", "whoi", "You", "Submit MIT-WHOI today. This gives you one day of spare time."],
+      ["d9-stanee", "stan", "You", "Submit Stanford EE (if you apply)."]
+    ]],
+    ["2026-12-02", "Wed 2 Dec", "Final deadlines", [
+      ["d10-last", "all", "You", "Last chance: MIT-WHOI closes at 12:59 PM SGT. Stanford EE closes at 3:59 PM SGT."]
+    ]]
+  ];
+  const FAC = [
+    ["adib", "Fadel Adib", "MIT Signal Kinetics", "https://www.media.mit.edu/groups/signal-kinetics/applicant-information/"],
+    ["mccammon", "Seth McCammon", "WHOI, multi-vehicle autonomy, passive acoustics", "https://mit.whoi.edu/faculty/seth-mccammon/"],
+    ["park", "Yongsung Park", "WHOI, acoustic signal processing, localization", "https://mit.whoi.edu/faculty/yongsung-park/"],
+    ["kaeli", "Jeff Kaeli", "WHOI Oceanographic Systems Lab", "https://www2.whoi.edu/site/osl/"],
+    ["girdhar", "Yogesh Girdhar", "WHOI WARPLab", "https://warp.whoi.edu/prospective-students"]
+  ];
+  const RECS = [
+    ["chitre", "Mandar Chitre", "NUS ARL"],
+    ["armitage", "Oliver Armitage", "Axoft supervisor"],
+    ["niyato", "Dusit Niyato", "NTU thesis supervisor"]
+  ];
+
+  // State
+  let checks = {};
+  const boxes = [];
+  function cb(id, label) {
+    const i = document.createElement("input"); i.type = "checkbox"; i.id = "cb-" + id; i.dataset.k = id;
+    if (label) i.setAttribute("aria-label", label);
+    boxes.push(i); return i;
+  }
+  const todayKey = (() => { const s = new Date().toLocaleDateString("en-CA", { timeZone: "Asia/Singapore" }); return s; })();
+
+  const daysEl = document.getElementById("days");
+  DAYS.forEach(([key, label, theme, tasks, warn]) => {
+    const d = document.createElement("div"); d.className = "day" + (key === todayKey ? " today" : "");
+    const h = document.createElement("div"); h.className = "day-h";
+    const b = document.createElement("b"); b.textContent = label;
+    const t = document.createElement("span"); t.className = "tag"; t.textContent = theme;
+    h.append(b, t); d.appendChild(h);
+    tasks.forEach(([id, trk, who, text]) => {
+      const row = document.createElement("div"); row.className = "task"; row.dataset.k = id;
+      const box = cb(id);
+      const l = document.createElement("label"); l.htmlFor = box.id;
+      const tg = document.createElement("span"); tg.className = "trk " + trk; tg.textContent = { whoi: "MIT-WHOI", stan: "STANFORD", ell: "ELLISON", all: "ALL" }[trk];
+      l.append(tg, document.createTextNode(text));
+      const w = document.createElement("span"); w.className = "who" + (who === "Claude" ? " claude" : ""); w.textContent = who;
+      row.append(box, l, w); d.appendChild(row);
+    });
+    if (warn) { const p = document.createElement("p"); p.className = "warnline"; p.textContent = warn; d.appendChild(p); }
+    daysEl.appendChild(d);
+  });
+  const facEl = document.getElementById("fac");
+  FAC.forEach(([k, n, s, u]) => {
+    const tr = document.createElement("tr");
+    const td = document.createElement("td"); const a = document.createElement("a"); a.href = u; a.target = "_blank"; a.rel = "noopener"; a.textContent = n;
+    const sm = document.createElement("small"); sm.textContent = s; td.append(a, sm); tr.appendChild(td);
+    ["drafted", "sent", "reply"].forEach(c => { const x = document.createElement("td"); x.className = "c"; x.appendChild(cb("fac-" + k + "-" + c, n + " " + c)); tr.appendChild(x); });
+    facEl.appendChild(tr);
+  });
+  const recEl = document.getElementById("recs");
+  RECS.forEach(([k, n, s]) => {
+    const tr = document.createElement("tr");
+    const td = document.createElement("td"); td.textContent = n; const sm = document.createElement("small"); sm.textContent = s; td.appendChild(sm); tr.appendChild(td);
+    ["agreed", "whoi", "stanford", "ellison"].forEach(c => { const x = document.createElement("td"); x.className = "c"; x.appendChild(cb("rec-" + k + "-" + c, n + " " + c)); tr.appendChild(x); });
+    recEl.appendChild(tr);
+  });
+  if (checks) { /* default */ }
+  ["rec-chitre-agreed", "fac-adib-drafted"].forEach(() => {}); // no defaults assumed
+
+  function render() {
+    boxes.forEach(b => { b.checked = !!checks[b.dataset.k]; const row = b.closest(".task"); if (row) row.classList.toggle("done", b.checked); });
+    const tasks = boxes.filter(b => b.closest(".task")), done = tasks.filter(b => b.checked).length;
+    document.getElementById("bar").style.width = (tasks.length ? done / tasks.length * 100 : 0) + "%";
+    document.getElementById("ptext").textContent = done + " / " + tasks.length + " tasks";
+  }
+  function setStatus(msg, kind) { const el = document.getElementById("save-state"); el.textContent = ""; const d = document.createElement("span"); d.className = "dot " + (kind || ""); el.append(d, document.createTextNode(msg)); }
+
+  let docRef = null, saving = false, pending = false, loaded = false;
+  async function save() {
+    if (!docRef) { setStatus("Saving is not available in this view. Ticks stay on this screen only.", "warn"); return; }
+    if (saving) { pending = true; return; }
+    saving = true;
+    try { await docRef.set({ checks: Object.assign({}, checks), updatedAt: new Date().toISOString() }); setStatus("Saved", "ok"); }
+    catch (e) { setStatus("Save failed. Tick again to retry.", "warn"); }
+    finally { saving = false; if (pending) { pending = false; save(); } }
+  }
+  document.addEventListener("change", e => {
+    const k = e.target && e.target.dataset && e.target.dataset.k; if (!k) return;
+    if (e.target.checked) checks[k] = true; else delete checks[k];
+    render(); save();
+  });
+  render();
+  // Pre-tick facts the user already gave: Chitre agreed.
+  const t = setTimeout(() => { if (!loaded) setStatus("Saved ticks cannot be reached yet.", "warn"); }, 10000);
+  if (window.claude && window.claude.use) {
+    window.claude.use("db").then(db => {
+      if (!db) { clearTimeout(t); setStatus("Saving is not available in this view. Ticks stay on this screen only.", "warn"); return; }
+      docRef = db.doc("plan/state");
+      docRef.onSnapshot(snap => {
+        if (snap.metadata.fromCache && !snap.exists) return;
+        clearTimeout(t); loaded = true;
+        if (snap.exists && !snap.metadata.hasPendingWrites) { checks = Object.assign({}, (snap.data() || {}).checks || {}); render(); setStatus("Saved ticks loaded", "ok"); }
+        else if (!snap.exists) setStatus("No ticks saved yet", "");
+      }, () => { clearTimeout(t); setStatus("Saved ticks cannot be loaded.", "warn"); });
+    });
+  } else { clearTimeout(t); setStatus("Saving is not available in this view. Ticks stay on this screen only.", "warn"); }
+})();
+</script>
