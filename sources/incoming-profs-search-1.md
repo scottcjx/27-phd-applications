@@ -21,3 +21,23 @@ Result: few named people. Search engines show mostly job ads. Personal "incoming
 ## Not a good fit (recorded only)
 - Spring 2027 PhD starts: ASU IRIS Lab (Wanxin Jin), LSU New Orleans, Texas Tech, Texas A&M, UWF. General robotics, not marine or neuro.
 - Yudai Tanaka (UT Austin CS, incoming): HCI focus.
+
+# Round 2 (2026-11-22). Scope: USA/Canada + UK/Europe. Any start from June 2027.
+4 more extended searches.
+
+## New named leads
+| Person | Where | Start | Fit | Note |
+|---|---|---|---|---|
+| Sergey Stavisky | UC Berkeley Neuroscience (from UC Davis) | 2027-01-01 (inside 6 months) | Neurotech / BCI (rank 3 track) | ASSOCIATE professor, not assistant. PhD route and recruiting not checked. |
+
+## Open faculty searches (person not known)
+- Technical University of Munich: tenure-track professor, implantable BCIs.
+- Boston University BME: tenure-track, neural interfaces and closed-loop BCI.
+
+## Funded PhD projects (not incoming profs) that fit
+- Southampton: robotic place recognition underwater (Blair Thornton), 2027/28, UK/EU/intl, closes 2027-10-31.
+- Salford: Sustainable Sound Futures CDT, 16 funded acoustics PhDs, Sept 2027 cohort, closes 2027-01-11 10:00 GMT.
+- Southampton: vessel monitoring with underwater acoustics, closes 2027-01-15, UK applicants ONLY (not eligible).
+
+## Limit of method
+Web search finds job ads, not "incoming" notes on personal sites. Better method: read the "new faculty" news pages of target departments, one by one.
