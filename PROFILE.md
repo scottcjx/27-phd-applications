@@ -47,3 +47,4 @@ Facts from the user only. Claude does not add guesses here.
 | Faculty emails to draft | Adib, McCammon, Park, Kaeli, Girdhar | 2026-11-22 |
 | Statement of objectives | Not started | 2026-11-22 |
 | Location until deadlines | Singapore | 2026-11-22 |
+| Thesis status | Less than half done. No results to claim yet. | 2026-11-22 |
