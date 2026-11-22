@@ -31,3 +31,12 @@ Facts from the user only. Claude does not add guesses here.
 | Tests | No GRE. No English test (ask for waiver) |
 | Recommenders | Mandar Chitre: agreed. Jia Liu: do not use. Oliver Armitage (Axoft supervisor): not asked |
 | Not answered | Topics (v1 text in backup), lab contact status, gap plan, fee budget, visa, number of programs, company limits, other publications, awards, first task |
+
+## Chat answers (2026-11-22)
+
+| Item | Answer |
+|---|---|
+| First task | Check all deadlines |
+| Letters | Mandar Chitre (agreed); Oliver Armitage (Axoft supervisor, not asked); Dusit Niyato (NTU thesis supervisor) |
+| MIT-WHOI faculty contacted | None |
+| Topics | Restored from v1 backup to the page |
