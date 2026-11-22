@@ -166,7 +166,8 @@ a { color: var(--accent); }
     ["2026-11-22", "Sun 22 Nov", "Letters and decisions", [
       ["d0-ask", "all", "Claude", "Draft letter requests to Oliver Armitage and Dusit Niyato. Include the deadlines and the programs."],
       ["d0-send", "all", "You", "Send the 2 letter requests today. Tell Mandar Chitre the list of programs."],
-      ["d0-stan", "stan", "You", "Decide: Stanford EE, Stanford ME, or both. Each needs its own statement."],
+      ["d0-stan", "stan", "You", "Start 2 Stanford applications: EE and ME. Each needs its own statement and fee."],
+      ["d0-chitre", "whoi", "You", "Ask Mandar Chitre for an introduction to Lee Freitag and Jim Partan (WHOI Acoustic Communications). He co-authored with Freitag."],
       ["d0-recs", "whoi", "You", "Add the 3 recommenders in the MIT-WHOI portal, so that they get the link now."]
     ]],
     ["2026-11-23", "Mon 23 Nov", "Faculty emails", [
@@ -217,11 +218,12 @@ a { color: var(--accent); }
     ]]
   ];
   const FAC = [
-    ["adib", "Fadel Adib", "MIT Signal Kinetics", "https://www.media.mit.edu/groups/signal-kinetics/applicant-information/"],
-    ["mccammon", "Seth McCammon", "WHOI, multi-vehicle autonomy, passive acoustics", "https://mit.whoi.edu/faculty/seth-mccammon/"],
-    ["park", "Yongsung Park", "WHOI, acoustic signal processing, localization", "https://mit.whoi.edu/faculty/yongsung-park/"],
-    ["kaeli", "Jeff Kaeli", "WHOI Oceanographic Systems Lab", "https://www2.whoi.edu/site/osl/"],
-    ["girdhar", "Yogesh Girdhar", "WHOI WARPLab", "https://warp.whoi.edu/prospective-students"]
+    ["adib", "Fadel Adib", "MIT Signal Kinetics", "https://www.media.mit.edu/groups/signal-kinetics/applicant-information/", "Link: his 2024 and 2025 underwater backscatter papers cite Chitre. Niyato's group cites Adib (2024)."],
+    ["mccammon", "Seth McCammon", "WHOI, multi-vehicle autonomy, passive acoustics", "https://mit.whoi.edu/faculty/seth-mccammon/", "Link: a 2026 Chitre paper cites McCammon."],
+    ["park", "Yongsung Park", "WHOI, acoustic signal processing, localization", "https://mit.whoi.edu/faculty/yongsung-park/", "Link: his 2024 and 2026 papers cite Chitre."],
+    ["kaeli", "Jeff Kaeli", "WHOI Oceanographic Systems Lab", "https://www2.whoi.edu/site/osl/", "Link: a 2017 Kaeli paper cites Chitre."],
+    ["girdhar", "Yogesh Girdhar", "WHOI WARPLab", "https://warp.whoi.edu/prospective-students", "Link: a 2018 Chitre paper cites Girdhar."],
+    ["freitag", "Lee Freitag / Jim Partan", "WHOI Acoustic Communications (engineers)", "https://acomms.whoi.edu/about-us/contact-us/", "Link: Freitag co-authored with Chitre. Strong citations both ways. Ask Chitre for an introduction."]
   ];
   const RECS = [
     ["chitre", "Mandar Chitre", "NUS ARL"],
@@ -259,10 +261,12 @@ a { color: var(--accent); }
     daysEl.appendChild(d);
   });
   const facEl = document.getElementById("fac");
-  FAC.forEach(([k, n, s, u]) => {
+  FAC.forEach(([k, n, s, u, link]) => {
     const tr = document.createElement("tr");
     const td = document.createElement("td"); const a = document.createElement("a"); a.href = u; a.target = "_blank"; a.rel = "noopener"; a.textContent = n;
-    const sm = document.createElement("small"); sm.textContent = s; td.append(a, sm); tr.appendChild(td);
+    const sm = document.createElement("small"); sm.textContent = s; td.append(a, sm);
+    if (link) { const lk = document.createElement("small"); lk.style.color = "var(--ok)"; lk.textContent = link; td.appendChild(lk); }
+    tr.appendChild(td);
     ["drafted", "sent", "reply"].forEach(c => { const x = document.createElement("td"); x.className = "c"; x.appendChild(cb("fac-" + k + "-" + c, n + " " + c)); tr.appendChild(x); });
     facEl.appendChild(tr);
   });

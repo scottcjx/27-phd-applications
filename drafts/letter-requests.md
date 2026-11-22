@@ -18,7 +18,7 @@ My first deadlines are close, and I am sorry for the short notice:
 | Program | Letter deadline |
 |---|---|
 | MIT-WHOI Joint Program (Applied Ocean Science & Engineering) | Dec 1, 2026, 11:59 PM EST |
-| Stanford [EE / ME] PhD | Dec 1, 2026 |
+| Stanford EE PhD and Stanford ME PhD (2 applications) | Dec 1, 2026 |
 | [Ellison Scholars, Oxford: only if the form asks for letters] | [Dec 1, 2026] |
 
 Each portal sends you a link by email. One letter can be used for all programs.
@@ -47,7 +47,7 @@ My first deadlines are close, and I am sorry for the short notice:
 | Program | Letter deadline |
 |---|---|
 | MIT-WHOI Joint Program (Applied Ocean Science & Engineering) | Dec 1, 2026, 11:59 PM EST (Dec 2, 12:59 PM Singapore time) |
-| Stanford [EE / ME] PhD | Dec 1, 2026 |
+| Stanford EE PhD and Stanford ME PhD (2 applications) | Dec 1, 2026 |
 | [Ellison Scholars, Oxford: only if the form asks for letters] | [Dec 1, 2026] |
 
 Each portal sends you a link by email. One letter can be used for all programs.
