@@ -4,9 +4,9 @@ Status: DRAFT. Scott adds thesis results, checks each fact, and sends. Claude do
 Items in [brackets] need Scott's input. Facts about each person come from their own pages or OpenAlex (see sources/).
 
 ## Rules for all 6 emails
-- Send between 8 PM and 11 PM Singapore time (morning in Boston). Send by Mon 23 Nov.
+- Send between 8 PM and 11 PM Singapore time (morning in Boston). Send as soon as possible (planned date was Mon 23 Nov).
 - Attach: CV (PDF) and unofficial transcript (PDF). The program asks for both.
-- CC: DECISION OPEN. One MIT-WHOI page said to copy the "Education Coordinator" of your field. The current pages name no one for applicants. The AOPE Education Coordinator is Ted Maksym (department representative), but no email is shown. General office: jp-info@mit.edu.
+- CC: none (user decision, 2026-11-24). Send each email to the faculty member only.
 - Keep each email under 250 words. Faculty read on phones.
 - One email per person. Do not send one email to many faculty.
 - CONFIRMED (2026-11-24): Prof. Mandar Chitre is your supervisor at NUS ARL.
