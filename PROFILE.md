@@ -48,3 +48,4 @@ Facts from the user only. Claude does not add guesses here.
 | Statement of objectives | Not started | 2026-11-22 |
 | Location until deadlines | Singapore | 2026-11-22 |
 | Thesis status | Less than half done. No results to claim yet. | 2026-11-22 |
+| NUS ARL supervisor | Prof. Mandar Chitre (confirmed) | 2026-11-24 |

@@ -6,10 +6,10 @@ Items in [brackets] need Scott's input. Facts about each person come from their 
 ## Rules for all 6 emails
 - Send between 8 PM and 11 PM Singapore time (morning in Boston). Send by Mon 23 Nov.
 - Attach: CV (PDF) and unofficial transcript (PDF). The program asks for both.
-- CC the MIT-WHOI Education Coordinator for Applied Ocean Science & Engineering: [find the name and email on mit.whoi.edu].
+- CC: DECISION OPEN. One MIT-WHOI page said to copy the "Education Coordinator" of your field. The current pages name no one for applicants. The AOPE Education Coordinator is Ted Maksym (department representative), but no email is shown. General office: jp-info@mit.edu.
 - Keep each email under 250 words. Faculty read on phones.
 - One email per person. Do not send one email to many faculty.
-- CONFIRM: Is Prof. Mandar Chitre your supervisor at NUS ARL? The drafts say "in Prof. Mandar Chitre's lab". Change this if it is not correct.
+- CONFIRMED (2026-11-24): Prof. Mandar Chitre is your supervisor at NUS ARL.
 
 ## Thesis placeholder (fill once, then copy into each email)
 The thesis is less than half done (user, 2026-11-22). The drafts do NOT claim results.
