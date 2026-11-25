@@ -159,3 +159,27 @@ Thank you for your time.
 Best regards,
 Scott Cheng
 [scottcjx.com]
+
+---
+
+## 7. Levi (Veevee) Cai (Stanford, Oceans Department, joining Fall 2027)
+
+Added 2026-11-25. Goal: ask which Stanford PhD program he can advise through. He joins the Oceans Department (Doerr School); Scott applies to Stanford EE and ME. Facts about him: Stanford profile (joining Fall 2027, accepting PhD students), Stanford seminar listing (vision-guided underwater vehicles for studying ocean life), MIT-WHOI Joint Program PhD. Interest form from his page: https://forms.gle/ApgQQsgVD56k2WmJ6 (fill it as well).
+
+**Subject:** Prospective PhD student for Fall 2027: underwater robots that communicate through their thrusters
+
+Dear Dr. Cai,
+
+I am a final-year Computer Science student at NTU Singapore. I saw that you join the Stanford Oceans Department in Fall 2027 and are taking PhD students. I would like to work with you on underwater robots.
+
+My thesis, "Integrated Communications, Sensing, and Propulsion", studies how to use an underwater vehicle's thrusters as acoustic transmitters. I do this work at the NUS Acoustic Research Laboratory, in Prof. Mandar Chitre's lab. So far I have characterised the thrusters and their acoustic noise in an acoustically dampened tank. I am now working out how to inject communication signals into the thruster modulation.
+
+I am Head of Mecatron, NTU's autonomous robotics team. At RobotX 2026 we deployed underwater, surface, and aerial vehicles after two months of development and placed 4th in Design.
+
+I am applying to Stanford EE and ME (deadline December 1). Which program should I apply through to work with you? Is the Oceans PhD a better route? I have attached my CV and transcript.
+
+Thank you for your time.
+
+Best regards,
+Scott Cheng
+[scottcjx.com]

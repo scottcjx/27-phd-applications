@@ -49,3 +49,19 @@ Facts from the user only. Claude does not add guesses here.
 | Location until deadlines | Singapore | 2026-11-22 |
 | Thesis status | Less than half done. No results to claim yet. | 2026-11-22 |
 | NUS ARL supervisor | Prof. Mandar Chitre (confirmed) | 2026-11-24 |
+
+## Résumé-repo session answers (2026-11-25)
+
+| Item | Answer |
+|---|---|
+| Thesis title | Integrated Communications, Sensing, and Propulsion (ICSP) |
+| ARL name | NUS Acoustic Research Laboratory (user confirmed) |
+| Thesis progress | Thruster and noise characterisation done (acoustically dampened tank). Now formulating signal injection into thruster modulation. End goal: UnetStack. |
+| FYP supervisors | Mandar Chitre (NUS), Dusit Niyato (NTU). Both writing letters. Dusit asked Scott to draft his letter. |
+| Third letter | Oliver Armitage (worked closely). Not Daniel New (general letter only). Not LTC Danny. |
+| Honours | Projected CGPA 4.00-4.49 = NTU Honours (Distinction) |
+| Polytechnic start | Apr 2018 |
+| Ellison Scholars | SKIP (no marine/robotics project on the Dec 1 portal; AI & Robotics goes via Oxford directly) |
+| Stanford faculty to name | Amin Arbabian (EE), Oussama Khatib, Mark Cutkosky (ME), Levi Cai (Oceans) |
+| Levi Cai | Email him to ask which program to apply through |
+| Michael Benjamin, Henrik Schmidt | Do not name (Benjamin: research does not align; Schmidt: emeritus) |
