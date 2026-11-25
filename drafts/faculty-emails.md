@@ -26,7 +26,7 @@ Dear Prof. Adib,
 
 I am a final-year Computer Science student at NTU Singapore. I am applying to the MIT-WHOI Joint Program for Fall 2027, and I would like to work on underwater networking with your group.
 
-My thesis, "Integrated Communications, Sensing, and Propulsion", studies how to use an underwater vehicle's own thrusters as acoustic transmitters. I do this work at the NUS Acoustics Research Lab, in Prof. Mandar Chitre's lab. The project is at an early stage. [PROGRESS] [PLAN]
+My thesis, "Integrated Communications, Sensing, and Propulsion", studies how to use an underwater vehicle's own thrusters as acoustic transmitters. I do this work at the NUS Acoustic Research Laboratory, in Prof. Mandar Chitre's lab. The project is at an early stage. [PROGRESS] [PLAN]
 
 Your work on underwater backscatter is close to my question. "Mobile Underwater Backscatter Networking" puts low-power links on moving platforms. My thesis asks how much communication a vehicle can get from hardware it already carries. I want to study where these two ideas meet: vehicles that talk, sense, and move with the same parts.
 
@@ -50,7 +50,7 @@ Dear Dr. McCammon,
 
 I am a final-year Computer Science student at NTU Singapore. I am applying to the MIT-WHOI Joint Program (Applied Ocean Science & Engineering) for Fall 2027. Your work on multi-vehicle coordinated autonomy and passive acoustic sensing fits what I want to study.
 
-My thesis, "Integrated Communications, Sensing, and Propulsion", studies how to use a vehicle's thrusters as acoustic transmitters. I do this work at the NUS Acoustics Research Lab, in Prof. Mandar Chitre's lab. The project is at an early stage. [PROGRESS]
+My thesis, "Integrated Communications, Sensing, and Propulsion", studies how to use a vehicle's thrusters as acoustic transmitters. I do this work at the NUS Acoustic Research Laboratory, in Prof. Mandar Chitre's lab. The project is at an early stage. [PROGRESS]
 
 I think this links to coordinated autonomy. If each vehicle can send and sense with its own propulsion, a team can share data and adapt its sampling without extra acoustic hardware. I would like to test this on real vehicles, and I want to learn how you plan multi-vehicle missions around acoustic constraints.
 
@@ -74,7 +74,7 @@ Dear Dr. Park,
 
 I am a final-year Computer Science student at NTU Singapore. I am applying to the MIT-WHOI Joint Program (Applied Ocean Science & Engineering) for Fall 2027. I am interested in your work that combines signal processing and ocean acoustics for source localization.
 
-My thesis, "Integrated Communications, Sensing, and Propulsion", studies how to use an underwater vehicle's thrusters as acoustic transmitters. I do this work at the NUS Acoustics Research Lab, in Prof. Mandar Chitre's lab. The project is at an early stage. [PROGRESS] [PLAN]
+My thesis, "Integrated Communications, Sensing, and Propulsion", studies how to use an underwater vehicle's thrusters as acoustic transmitters. I do this work at the NUS Acoustic Research Laboratory, in Prof. Mandar Chitre's lab. The project is at an early stage. [PROGRESS] [PLAN]
 
 A thruster is a moving, broadband, and partly controllable source. Your papers on learning methods for shallow-water propagation, such as "Predicting ocean pressure field with a physics-informed neural network", made me ask whether these models can help a vehicle localize itself or its peers from its own thruster signals.
 
@@ -98,7 +98,7 @@ Dear Dr. Kaeli,
 
 I am a final-year Computer Science student at NTU Singapore. I am applying to the MIT-WHOI Joint Program (Applied Ocean Science & Engineering) for Fall 2027. The Oceanographic Systems Lab's mix of AUVs, underwater acoustics, and embedded data acquisition is the kind of work I want to do.
 
-My thesis, "Integrated Communications, Sensing, and Propulsion", studies how to use a vehicle's thrusters as acoustic transmitters. I do this work at the NUS Acoustics Research Lab, in Prof. Mandar Chitre's lab. The project is at an early stage. [PROGRESS]
+My thesis, "Integrated Communications, Sensing, and Propulsion", studies how to use a vehicle's thrusters as acoustic transmitters. I do this work at the NUS Acoustic Research Laboratory, in Prof. Mandar Chitre's lab. The project is at an early stage. [PROGRESS]
 
 I build hardware. At NTU, I lead Mecatron, our autonomous marine vehicle team, and I work on its electrical architecture, power, communications, and PCBs. With NVF Racing, I designed PCBs for vehicle sensors and the main control unit. At Axoft, I built hardware-in-the-loop data acquisition for neural recordings.
 
@@ -122,7 +122,7 @@ Dear Dr. Girdhar,
 
 I am a final-year Computer Science student at NTU Singapore. I am applying to the MIT-WHOI Joint Program for Fall 2027. I read about WARPLab's work on autonomous seeking and mapping of coral reef biodiversity hotspots with a multimodal AUV, and I would like to work on autonomy of this kind.
 
-My thesis, "Integrated Communications, Sensing, and Propulsion", studies how to use a vehicle's thrusters as acoustic transmitters. I do this work at the NUS Acoustics Research Lab, in Prof. Mandar Chitre's lab. The project is at an early stage. [PROGRESS]
+My thesis, "Integrated Communications, Sensing, and Propulsion", studies how to use a vehicle's thrusters as acoustic transmitters. I do this work at the NUS Acoustic Research Laboratory, in Prof. Mandar Chitre's lab. The project is at an early stage. [PROGRESS]
 
 My question for WARPLab is how a vehicle that can sense and communicate through its own propulsion should plan. For example, it can choose paths that also give good acoustic links or good acoustic measurements.
 
@@ -146,7 +146,7 @@ NOTE: Send this AFTER Prof. Chitre agrees to introduce you, or ask him to CC you
 
 Dear Mr. Freitag and Mr. Partan,
 
-[Prof. Mandar Chitre suggested that I contact you.] I am a final-year Computer Science student at NTU Singapore. I do my thesis at the NUS Acoustics Research Lab, and I am applying to the MIT-WHOI Joint Program for Fall 2027.
+[Prof. Mandar Chitre suggested that I contact you.] I am a final-year Computer Science student at NTU Singapore. I do my thesis at the NUS Acoustic Research Laboratory, and I am applying to the MIT-WHOI Joint Program for Fall 2027.
 
 My thesis, "Integrated Communications, Sensing, and Propulsion", studies how to use an underwater vehicle's thrusters as acoustic transmitters. The project is at an early stage. [PROGRESS] [PLAN]
 
