@@ -48,3 +48,12 @@ Source: https://mit.whoi.edu/wp-content/uploads/sites/24/2024/12/AOSE_handbook_u
 | eng | Lee Freitag, Jim Partan | Acoustic Communications Group engineers; NOT listed as JP faculty | ACOMMS | https://acomms.whoi.edu/about-us/contact-us/ |
 
 Note: AOPE directory tags many active people "Emeritus Faculty". Probably a site label error. Not verified.
+
+## Faculty readers and other MIT routes (read 2026-11-27)
+- Portal reader list (from Scott, 2026-11-26): Adib, Park, Karapetyan, Kaeli, Freitag, Partan, YT Lin NOT on it. McCammon, Girdhar, Bonnel, Makris, Baumgartner, Leonard, Williams ARE on it.
+- Adib (media.mit.edu/groups/signal-kinetics/applicant-information): admits via EECS, Media Arts & Sciences, MIT-WHOI JP. "apply to either of the programs and select Prof. Adib to be a preferred reader". Does not say which form has this.
+- Park, Karapetyan: have mit.whoi.edu faculty pages, no application text. Kaeli: OSL lists him as "Research Engineer".
+- JP FAQ: "strongly encouraged to contact faculty"; no faculty-selection field documented; research areas: up to 3, ranked. Separate applications and fees per department.
+- JP info session slides (2026): SoP should name "Specific faculty whose research most interests you" and "Factors that may have impacted your performance". Strong application: "Potential match with a research advisor". Closes Dec 1, 2026. Questions: jp-info@mit.edu.
+- MIT EECS direct: deadline Dec 1; fee $90; independent of other applications (no shared materials); 3 letters; 2 essays ("Research Activities and Goals", "Academic and Intellectual Journey"); no master's needed to apply (earned on the way). No faculty/reader field documented. FAQ: "Faculty members will not discuss financial support or thesis supervision with a student who has not yet been admitted."
+- Media Arts & Sciences: deadline probably Dec 15 (one old page says Dec 1; not confirmed); new students admitted at master's level first (2016 page).

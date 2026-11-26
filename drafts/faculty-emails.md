@@ -20,6 +20,8 @@ The thesis is less than half done (user, 2026-11-22). The drafts do NOT claim re
 
 ## 1. Fadel Adib (MIT Signal Kinetics)
 
+NOTE (2026-11-27): use draft 10 instead. Adib is not on the MIT-WHOI reader list, and draft 10 asks about that.
+
 **Subject:** Prospective PhD student (MIT-WHOI / EECS): thrusters as acoustic transmitters
 
 Dear Prof. Adib,
@@ -177,6 +179,82 @@ My thesis, "Integrated Communications, Sensing, and Propulsion", studies how to 
 I am Head of Mecatron, NTU's autonomous robotics team. At RobotX 2026 we deployed underwater, surface, and aerial vehicles after two months of development and placed 4th in Design.
 
 I am applying to Stanford EE and ME (deadline December 1). Which program should I apply through to work with you? Is the Oceans PhD a better route? I have attached my CV and transcript.
+
+Thank you for your time.
+
+Best regards,
+Scott Cheng
+[scottcjx.com]
+
+---
+
+## 8. Julien Bonnel (Scripps; on the MIT-WHOI reader list)
+
+Added 2026-11-26. Facts: his lab site (sioa.ucsd.edu) lists him as Full Professor, Marine Physical Laboratory, Scripps. The lab lists MIT/WHOI PhD students. His WHOI staff page and MIT-WHOI faculty page are gone (410/404). He is on the portal list of people who can read the application (Scott, 2026-11-26). Paper verified in OpenAlex: Bonnel, Thode, Wright, Chapman (2020), "Nonlinear time-warping made simple: A step-by-step tutorial on underwater acoustic modal separation with a single hydrophone", JASA, doi 10.1121/10.0000937.
+
+**Subject:** Prospective MIT-WHOI PhD student: decoding thruster signals in shallow water
+
+Dear Prof. Bonnel,
+
+I am a final-year Computer Science student at NTU Singapore. I am applying to the MIT-WHOI Joint Program (Applied Ocean Science and Engineering) for Fall 2027, with Mechanical Engineering as my home department.
+
+My final year project, "Integrated Communications, Sensing, and Propulsion", asks whether an underwater vehicle can send acoustic messages through its own thrusters. I do this work at the NUS Acoustic Research Laboratory, supervised by Prof. Mandar Chitre and Prof. Dusit Niyato. So far I have characterized the thrusters and their acoustic noise in an acoustically dampened tank. I am now working out how to inject communication signals into the thruster modulation.
+
+In the sea, a thruster signal will arrive as several multipath copies. Your tutorial "Nonlinear time-warping made simple" showed me that one hydrophone can separate these arrivals. I want to learn whether the same methods can help recover a message, or a range estimate, from a thruster.
+
+I am also Head of Mecatron, NTU's autonomous robotics team. I designed the electrical systems and circuit boards for our AUVs, including the hydrophone acquisition boards.
+
+Are you taking new Joint Program students for Fall 2027 now that you are at Scripps? I have attached my CV and transcript.
+
+Thank you for your time.
+
+Best regards,
+Scott Cheng
+[scottcjx.com]
+
+---
+
+## 9. Nicholas Makris (MIT Mechanical Engineering; on the MIT-WHOI reader list)
+
+Added 2026-11-26. Facts: his MIT page (acoustics.mit.edu/faculty/makris.html) lists him as Professor of Mechanical and Ocean Engineering, director of the Laboratory for Undersea Remote Sensing; his lab pioneered Ocean Acoustic Waveguide Remote Sensing (OAWRS). Planned home department: MechE (Claude's recommendation from the AOSE handbook; Scott to confirm).
+
+**Subject:** Prospective MIT-WHOI PhD student (MechE): ocean acoustics for vehicle-borne signals
+
+Dear Prof. Makris,
+
+I am a final-year Computer Science student at NTU Singapore. I am applying to the MIT-WHOI Joint Program (Applied Ocean Science and Engineering) for Fall 2027, with Mechanical Engineering as my home department.
+
+My final year project, "Integrated Communications, Sensing, and Propulsion", asks whether an underwater vehicle can send acoustic messages through its own thrusters. I do this work at the NUS Acoustic Research Laboratory, supervised by Prof. Mandar Chitre and Prof. Dusit Niyato. So far I have characterized the thrusters and their acoustic noise in an acoustically dampened tank. I am now working out how to inject communication signals into the thruster modulation.
+
+I have built the hardware and software for this, but I have not yet studied ocean acoustics formally. Your lab's work on Ocean Acoustic Waveguide Remote Sensing treats the ocean waveguide as a measurement system. I would like to learn that theory and use it to understand how far a thruster signal can travel and what it can carry.
+
+I am also Head of Mecatron, NTU's autonomous robotics team. At RobotX 2026 we deployed underwater, surface and aerial vehicles after two months of development and placed 4th in Design.
+
+Are you taking new Joint Program students for Fall 2027? I have attached my CV and transcript.
+
+Thank you for your time.
+
+Best regards,
+Scott Cheng
+[scottcjx.com]
+
+---
+
+## 10. Fadel Adib: how to be a reader (replaces draft 1)
+
+Added 2026-11-27. Facts: his applicant page (media.mit.edu/groups/signal-kinetics/applicant-information) says the group admits through EECS, Media Arts & Sciences and the MIT-WHOI Joint Program, and "apply to either of the programs and select Prof. Adib to be a preferred reader for your application." He is NOT on the MIT-WHOI portal reader list (Scott, 2026-11-26). The MIT-WHOI statement does not name him now. Direct EECS application: deadline Dec 1, $90, separate essays and letters. Send today (Boston morning = Singapore evening).
+
+**Subject:** MIT-WHOI applicant (Dec 1): how to list you as a reader?
+
+Dear Prof. Adib,
+
+I am a final-year Computer Science student at NTU Singapore, and I am applying to the MIT-WHOI Joint Program (Applied Ocean Science and Engineering) for Fall 2027.
+
+My final year project, "Integrated Communications, Sensing, and Propulsion", asks whether an underwater vehicle can send acoustic messages through its own thrusters. I do this work at the NUS Acoustic Research Laboratory, supervised by Prof. Mandar Chitre and Prof. Dusit Niyato. So far I have characterized the thrusters and their acoustic noise in an acoustically dampened tank. I am now working out how to inject communication signals into the thruster modulation. Your underwater backscatter work, which builds links from unconventional hardware, is close to this question.
+
+Your group page says applicants can select you as a preferred reader. In the MIT-WHOI application, you are not on the list of faculty I can choose. How can I make sure you see my application? Or should I also apply to EECS before the December 1 deadline?
+
+I have attached my CV and transcript.
 
 Thank you for your time.
 

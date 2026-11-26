@@ -54,6 +54,7 @@ Facts from the user only. Claude does not add guesses here.
 
 | Item | Answer |
 |---|---|
+| MIT-WHOI home department (2026-11-26) | 1st MechE, 2nd EECS (if the portal allows a ranking; else MechE only). Reason: AOSE handbook, EECS and AeroAstro need a master's first. |
 | Thesis title | Integrated Communications, Sensing, and Propulsion (ICSP) |
 | ARL name | NUS Acoustic Research Laboratory (user confirmed) |
 | Thesis progress | Thruster and noise characterisation done (acoustically dampened tank). Now formulating signal injection into thruster modulation. End goal: UnetStack. |
