@@ -17,6 +17,18 @@
 - No interviews. Offers mid-late February to mid-March.
 - Admitted students can start in June or September. June strongly encouraged.
 
+## AOSE handbook (Dec 2024), read 2026-11-26
+Source: https://mit.whoi.edu/wp-content/uploads/sites/24/2024/12/AOSE_handbook_update_20241212.docx.pdf
+- Home MIT department: AeroAstro, CEE, EECS or MechE. Student chooses it in the application (p.1).
+- Research advisor can be in any of the 4 MIT departments or any WHOI department, whatever the home department (p.1-2).
+- AeroAstro and EECS: must first complete a master's (MIT or elsewhere) before formal PhD admission (p.1).
+- Must meet all degree requirements of the home department, plus JP requirements (p.1).
+- About 2 years of coursework; first 3-4 semesters at MIT; quals by semester 3-5. MechE counts Acoustics and Robotics as core subjects for JP students' quals (p.1-2).
+- Thesis proposal and committee before end of year 3. Committee: 3+ members, 1+ WHOI, 1+ home dept. EECS: 2 EECS faculty. MechE: 1 MechE + 2 WHOI is OK for JP, no petition (p.4).
+- JP requirements: 1 term of research at WHOI (first summer counts); 2.688 Oceanographic Instrumentation; one 12-unit breadth class (e.g. 2.681 Environmental Ocean Acoustics, 2.682 Acoustical Oceanography); A or B in these; annual AOSE seminar (early Aug); thesis with direct ocean application (p.5-6).
+- WHOI faculty = Education Assembly: scientific staff plus Senior Technical/Engineering Staff approved by the WHOI Dean (p.11). Outside advisors only in exceptional cases, with MIT/WHOI co-advisor (p.2).
+- Funding: 5 years if in good standing (p.8).
+
 ## WHOI faculty fit (AOPE directory + lab pages). Recruiting: NOT STATED for all.
 | Rank | Person | Focus | Lab | URL |
 |---|---|---|---|---|
