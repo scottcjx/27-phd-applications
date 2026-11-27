@@ -261,3 +261,36 @@ Thank you for your time.
 Best regards,
 Scott Cheng
 [scottcjx.com]
+
+---
+
+## 11. Fadel Adib: why I want to work with him (full email; use instead of draft 10 if 10 is not sent yet)
+
+Added 2026-11-28. Papers verified in OpenAlex (title, authors, venue, year):
+- Afzal, Rademacher, Chen, Wang, Adib. "Scalable and Low Power Localization for Underwater Robots" (EchoBLUE). MobiCom 2025. doi 10.1145/3680207.3765265. Project page: "an underwater robot transmits SONAR-style (FMCW) signals"; "leverages ultra-low power underwater backscatter nodes as location anchors"; median 3D accuracy 28 cm; base station on a BlueROV2.
+- Akbar, Allam, Adib. "The Underwater Backscatter Channel: Theory, Link Budget, and Experimental Validation". MobiCom 2023, Best Paper. doi 10.1145/3570361.3613265.
+- Akbar, Allam, Naeem, Adib. "Bringing All Modulations to Underwater Backscatter via PDM-Synthesis". SenSys 2026, Best Paper Runner-Up. doi 10.1145/3774906.3800496.
+- Wang, Afzal, Adib. "Mobile Underwater Backscatter Networking". SIGCOMM 2025. doi 10.1145/3718958.3750507 (not named in the email).
+Abstracts for the last three could not be read (ACM blocked access). The email uses only their titles. **Scott: read at least the abstracts before sending. Remove any sentence about a paper you have not read.**
+
+**Subject:** Prospective MIT-WHOI student: thrusters as acoustic sources, and EchoBLUE
+
+Dear Prof. Adib,
+
+I am a final-year Computer Science student at NTU Singapore, applying to the MIT-WHOI Joint Program (Applied Ocean Science and Engineering) for Fall 2027. I would like to work with your group, and I want to explain why.
+
+My final year project, "Integrated Communications, Sensing, and Propulsion", asks whether an underwater vehicle can send acoustic messages through its own thrusters. I do this work at the NUS Acoustic Research Laboratory, supervised by Prof. Mandar Chitre and Prof. Dusit Niyato. So far I have characterized the thrusters and their acoustic noise in an acoustically dampened tank. I am now working out how to inject communication signals into the thruster modulation.
+
+Your group gets communication and sensing out of hardware that was not built to be a modem, and that is the same question I am asking of a thruster. EchoBLUE is the closest to where I want to go. There, a robot sends sonar-style chirps and low-power backscatter anchors give it a 3D position. I want to find out whether a vehicle's thrusters could be that acoustic source, so that propulsion also gives positioning. Your link-budget theory for the underwater backscatter channel is the kind of analysis I need to know how far a thruster signal can travel. Your PDM-Synthesis work asks which modulations simple hardware can produce, which is my question for a thruster that must keep pushing the vehicle.
+
+I build the full system. As Head of Mecatron, NTU's autonomous robotics team, I designed the electrical systems and circuit boards for our AUVs, including the hydrophone acquisition boards.
+
+Your group page says applicants can select you as a preferred reader, but you are not on the MIT-WHOI list I can choose from. How can I make sure you see my application? Should I also apply to EECS before December 1?
+
+I have attached my CV and transcript.
+
+Thank you for your time.
+
+Best regards,
+Scott Cheng
+[scottcjx.com]
