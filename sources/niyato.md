@@ -34,3 +34,9 @@ Sources: his homepage https://personal.ntu.edu.sg/dniyato/ (self-reported; NTU d
 - ICSP = ISAC + propulsion, underwater. He has co-authored underwater acoustic ISAC (waveform design; resource allocation).
 - Sharing a thruster between thrust and data = resource allocation (his IEEE Fellow citation).
 - UAV-USV-UUV networks = the same three vehicle types Mecatron deploys (RobotX 2026).
+
+## Link to Prof. Hesham ElSawy (Queen's; taught Scott's graduate networking course) — checked 2026-11-28
+- Niyato: Ph.D., Electrical and Computer Engineering, University of Manitoba, 2008 (ComSoc profile; NTU ERIAN profile). Co-authored with Ekram Hossain (Manitoba); Hossain's news page lists a 2007 paper and a 2011 Fred Ellersick Prize paper by Niyato and Hossain, and Niyato's NTU offer.
+- ElSawy: Ph.D., Electrical and Computer Engineering, University of Manitoba, 2014 (Queen's School of Computing profile, https://www.cs.queensu.ca/people/Hesham/ElSawy). Now at Queen's School of Computing; earlier KFUPM, KAUST, TRTech (Winnipeg).
+- So both did their PhDs at Manitoba ECE, about 6 years apart. Not confirmed: same supervisor, or overlap in time. OpenAlex shows no co-authored papers.
+- Scott says they know each other.

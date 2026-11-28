@@ -84,7 +84,7 @@ The draft is written in your voice, and everything in it is yours to change:
 - Yellow text is suggested wording only. Please keep, change or delete it so that it matches your own view.
 - Red text marks the parts only you can fill: the number of students you have supervised, one example from my project, a percentile, and your own assessment.
 
-Please delete the grey note at the top and remove the highlighting before you submit. The letter is due on 1 December, 11:59 PM EST, which is 2 December, 12:59 PM in Singapore. The portal should have sent you an upload link by email.
+Please remove the yellow highlighting and any red text before you submit. The letter is due on 1 December, 11:59 PM EST, which is 2 December, 12:59 PM in Singapore. The portal should have sent you an upload link by email.
 
 If anything in the draft is not accurate, or you would rather write it your own way, that is completely fine.
 
