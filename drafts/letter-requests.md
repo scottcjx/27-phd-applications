@@ -66,3 +66,29 @@ Scott Cheng
 - After each person agrees, add them in each portal at once. Then the portal sends the link.
 - Tell Prof. Chitre the same list of programs and deadlines.
 - Check: does Prof. Niyato know your work at NUS ARL well enough? If Prof. Chitre supervises the ARL work, the 2 letters may overlap. Ask Prof. Chitre and Prof. Niyato which parts each one can describe.
+
+---
+
+## 2b. Sending the draft letter to Prof. Niyato (he asked Scott to write it)
+
+Added 2026-11-28. Attach `letters/rec-niyato-strong.docx` from the résumé repo, plus CV and the MIT-WHOI statement (v2 PDF). The letter itself is in his voice; this email is in Scott's voice. Send as early as possible: MIT-WHOI deadline is 1 Dec 2026, 11:59 PM EST (2 Dec, 12:59 PM Singapore).
+
+**Subject:** Draft recommendation letter for MIT-WHOI (deadline 1 Dec)
+
+Dear Prof. Niyato,
+
+Thank you for agreeing to write my recommendation letter. As you asked, I have attached a draft for the MIT-WHOI Joint Program, with my CV and statement for reference.
+
+The draft is written in your voice, and everything in it is yours to change:
+- Plain text is factual.
+- Yellow text is suggested wording only. Please keep, change or delete it so that it matches your own view.
+- Red text marks the parts only you can fill: the number of students you have supervised, one example from my project, a percentile, and your own assessment.
+
+Please delete the grey note at the top and remove the highlighting before you submit. The letter is due on 1 December, 11:59 PM EST, which is 2 December, 12:59 PM in Singapore. The portal should have sent you an upload link by email.
+
+If anything in the draft is not accurate, or you would rather write it your own way, that is completely fine.
+
+Thank you again for your support.
+
+Best regards,
+Scott
