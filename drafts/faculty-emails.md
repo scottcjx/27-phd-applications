@@ -294,3 +294,27 @@ Thank you for your time.
 Best regards,
 Scott Cheng
 [scottcjx.com]
+
+---
+
+## 12. John Leonard (MIT MechE / CSAIL Marine Robotics Group; on the MIT-WHOI reader list)
+
+Added 2026-11-28. Facts: MIT News (2014-10-30) lists "principal investigator John Leonard (safety/sensing)" among the CSAIL members of the MIT–Olin team that won the Maritime RobotX Challenge 2014 in Singapore (the MechE article names Michael Benjamin as the team's advisor, so say "part of", not "advised"). Marine Robotics Group: navigation and mapping for underwater and land robots. Scott: Head of Mecatron, RobotX 2026 4th in Design, two months, all three vehicles; new season (Dec 2026): localization, perception and navigation. Planned home department: MechE. The RobotX link is kept for this email, not the statement (Scott, 2026-11-28).
+
+**Subject:** Prospective MIT-WHOI student (MechE): RobotX, AUV navigation, thruster-based acoustics
+
+Dear Prof. Leonard,
+
+I am a final-year Computer Science student at NTU Singapore, applying to the MIT-WHOI Joint Program (Applied Ocean Science and Engineering) for Fall 2027, with Mechanical Engineering as my home department.
+
+I lead Mecatron, NTU's autonomous robotics team. At the Maritime RobotX Challenge 2026 we had two months to develop our entry, deployed underwater, surface and aerial vehicles, and placed 4th in Design. I saw that you were part of the MIT and Olin team that won RobotX in Singapore in 2014, so the competition is something we share.
+
+My final year project at the NUS Acoustic Research Laboratory asks whether an underwater vehicle can communicate through its own thrusters. For the coming season I am also working on localization, perception and navigation for our AUV, which is where your group's work on navigation and mapping for underwater vehicles comes in. I would like to work where the two meet: vehicles that navigate and coordinate using acoustic links they already carry.
+
+Are you taking new Joint Program students for Fall 2027? I have attached my CV and transcript.
+
+Thank you for your time.
+
+Best regards,
+Scott Cheng
+[scottcjx.com]
